@@ -1,0 +1,69 @@
+---
+
+// IMPORT ASTRO lAYOUTS
+import Container from "@/layouts/container-custom/index.astro"
+
+// IMPORT ASTRO ATOMS
+import Link from "@/atoms/links/index.astro"
+import HeadingTwoBlue from "@/atoms/atoms-shiva/headings/two/four-xl/blue/index.astro"
+import ParagraphBaseMedium from "@/atoms/atoms-shiva/paragraphs/base/medium/index.astro"
+import ParagraphLgBoldBlueHover from "@/atoms/atoms-shiva/paragraphs/lg/bold/blue/hover/index.astro"
+import ParagraphSixXlWhite from "@/atoms/atoms-shiva/paragraphs/six-xl/bold/white/index.astro"
+import ParagraphTwoXlWhite from "@/atoms/atoms-shiva/paragraphs/two-xl/white/center/index.astro"
+
+// HARDCODED DATA
+const data = {
+
+    description_one: "We partner with you to uncover strategic insights that give you a competitive advantage and grow your business. Developing an effective digital marketing strategy that will achieve your objectives is our first priority. Our award-winning team executes that strategy, while monitoring, measuring, and maximizing efforts to improve your return on investment and position in the market.",
+    description_two: "You’ll partner with us because of our track record, and the results we provide are tangible and measurable. You’ll stay with us because we never stop working to help your business thrive.",
+    link_text: "Learn more about our SEO services.",
+    link: "/",
+    title: "You Want Results. Let Our Award-Winning Web Design And Digital Marketing Services Get Them For You.",
+
+}
+const card_data = [
+
+    {   
+        subtitle: "The number of clients served since 2009.",
+        title: "425+",
+    },
+    {   
+        subtitle: "The renewal rate on our marketing campaigns.",
+        title: "98%",
+    },
+
+]
+
+---
+
+<section class="py-12">
+    <Container>
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-16">
+            <div class="flex flex-col gap-6">
+                <HeadingTwoBlue>{ data.title }</HeadingTwoBlue>
+                <ParagraphBaseMedium>{ data.description_one }</ParagraphBaseMedium>
+                <ParagraphBaseMedium>{ data.description_two }</ParagraphBaseMedium>
+                <Link href={ data.link }>
+                    <ParagraphLgBoldBlueHover>{ data.link_text }</ParagraphLgBoldBlueHover>
+                </Link>
+            </div>
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-6 place-items-center">
+                {
+
+                    card_data.map( ( data ) => (
+
+                        <div 
+                            class="flex flex-col justify-center items-center max-w-80 gap-2 px-8 py-10 rounded-3xl" 
+                            style="background: linear-gradient(45deg, #0087f9 0%, #15a01e 100%);"
+                        >
+                            <ParagraphSixXlWhite>{ data.title }</ParagraphSixXlWhite>
+                            <ParagraphTwoXlWhite>{ data.subtitle }</ParagraphTwoXlWhite>
+                        </div>
+
+                    ))
+
+                }   
+            </div>
+        </div>
+    </Container>
+</section>

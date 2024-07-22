@@ -1,0 +1,87 @@
+---
+
+// IMPORT ASTRO lAYOUTS
+import Container from "@/layouts/container-custom/index.astro"
+
+// IMPORT ASTRO ATOMS
+import HeadingThreeXlwhite from "@/atoms/atoms-shiva/headings/three/xl/semibold/white/index.astro"
+import HeadingTwoBlue from "@/atoms/atoms-shiva/headings/two/four-xl/blue/index.astro"
+import Link from "@/atoms/links/index.astro"
+import ParagraphBaseMedium from "@/atoms/atoms-shiva/paragraphs/base/medium/index.astro"
+import ParagraphLgBoldBlue from "@/atoms/atoms-shiva/paragraphs/lg/bold/blue/index.astro"
+import ParagraphLgBoldBlueHover from "@/atoms/atoms-shiva/paragraphs/lg/bold/blue/hover/index.astro"
+import ParagraphMediumWhite from "@/atoms/atoms-shiva/paragraphs/base/medium/white/index.astro"
+import ParagraphSemiboldWhite from "@/atoms/atoms-shiva/paragraphs/base/semibold/white/index.astro"
+import ParagraphTwoXlWhite from "@/atoms/atoms-shiva/paragraphs/two-xl/white/center/index.astro"
+import PictureContain from "@/atoms/picture/internal/contain/index.astro"
+
+// HARDCODED DATA
+const data = {
+
+    bottom_description: "We won the SEO Campaign of the Year from the American Marketing Association for our work with Zoominfo (previously DiscoverOrg).",
+    bottom_link_text: "See how we helped ZoomInfo increase their organic traffic by 464%!",
+    bottom_link: "/",
+    description_four: "Long gone are the days of hoping someone drives by your billboard. With Webfor, we bring the billboard to them. From nationwide recognition to hometown accolades, Webfor creates more than flashy websites. We create results.",
+    description_one: "For more than a decade, Webfor has been building websites with a singular thought in mind: helping our clients succeed.",
+    description_three: "It’s more than just informative content; it’s researching what people (and search engines) are looking for.",
+    description_two: "It’s more than just eye-catching designs; it’s using testable methods to understand what your potential clients respond to.",
+    image_description: "We grew their online presence by thousands of searches per month resulting in exponential increases to conversions.",
+    image_link_text: "Read the rest of the study.",
+    image_link: "/",
+    image_subtitle: "Columbia Precast Products",
+    image_title: "CASE STUDY",
+    link_text: "Learn more about our SEO services.",
+    link: "/",
+    source: "/logos/ama.svg",
+    title: "We Have A Track Record Of Getting Results For Our Digital Marketing Clients. And For Everyone Else, Too.",
+
+}
+
+---
+
+<section class="py-12">
+    <Container>
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-16">
+            <div class="flex flex-col gap-6">
+                <HeadingTwoBlue>{ data.title }</HeadingTwoBlue>
+                <ParagraphBaseMedium>{ data.description_one }</ParagraphBaseMedium>
+                <ParagraphBaseMedium>{ data.description_two }</ParagraphBaseMedium>
+                <ParagraphBaseMedium>{ data.description_three}</ParagraphBaseMedium>
+                <ParagraphBaseMedium>{ data.description_four }</ParagraphBaseMedium>
+                <Link href={ data.link }>
+                    <ParagraphLgBoldBlueHover>{ data.link_text }</ParagraphLgBoldBlueHover>
+                </Link>
+                <div class="flex flex-col items-center justify-center lg:flex-row gap-4">
+                    <div class="min-w-44 aspect-square">
+                        <PictureContain
+                            alternative_text=""
+                            source={ data.source }
+                        />
+                    </div>
+                    <div class="flex flex-col gap-4">
+                        <ParagraphLgBoldBlue>{ data.bottom_description }</ParagraphLgBoldBlue>
+                        <Link href={ data.bottom_link }>
+                            <ParagraphLgBoldBlueHover>{ data.bottom_link_text }</ParagraphLgBoldBlueHover>
+                        </Link>
+                    </div>
+                </div>
+            </div>
+            <div class="flex items-center justify-center">
+                <div class="p-4 shadow-lg w-full">
+                    <div class="relative w-full aspect-[5/4] bg-[url('/images/case-study.jpg')] bg-cover bg-center bg-no-repeat">
+                        <div class="absolute top-0 left-0 bg-blue-500 px-4 py-2">
+                            <ParagraphTwoXlWhite>{ data.image_title }</ParagraphTwoXlWhite>
+                        </div>
+                        <div class="absolute bottom-0 bg-slate-700 bg-opacity-90 flex flex-col gap-2 p-4">
+                            <HeadingThreeXlwhite>{ data.image_subtitle }</HeadingThreeXlwhite>
+                            <ParagraphMediumWhite>{ data.image_description }</ParagraphMediumWhite>
+                            <Link href={ data.image_link }>
+                                <ParagraphSemiboldWhite>{ data.image_link_text }</ParagraphSemiboldWhite>
+                            </Link>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </Container>
+</section>

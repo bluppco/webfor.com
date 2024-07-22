@@ -67,16 +67,18 @@ const data = {
                 </div>
             </div>
             <div class="flex items-center justify-center">
-                <div class="relative w-full aspect-[5/4] bg-[url('/images/case-study.jpg')] bg-cover bg-center bg-no-repeat">
-                    <div class="absolute top-0 left-0 bg-blue-500 px-4 py-2">
-                        <ParagraphTwoXlWhite>{ data.image_title }</ParagraphTwoXlWhite>
-                    </div>
-                    <div class="absolute bottom-0 bg-slate-700 bg-opacity-90 flex flex-col gap-2 p-4">
-                        <HeadingThreeXlwhite>{ data.image_subtitle }</HeadingThreeXlwhite>
-                        <ParagraphMediumWhite>{ data.image_description }</ParagraphMediumWhite>
-                        <Link href={ data.image_link }>
-                            <ParagraphSemiboldWhite>{ data.image_link_text }</ParagraphSemiboldWhite>
-                        </Link>
+                <div class="p-4 shadow-lg w-full">
+                    <div class="relative w-full aspect-[5/4] bg-[url('/images/case-study.jpg')] bg-cover bg-center bg-no-repeat">
+                        <div class="absolute top-0 left-0 bg-blue-500 px-4 py-2">
+                            <ParagraphTwoXlWhite>{ data.image_title }</ParagraphTwoXlWhite>
+                        </div>
+                        <div class="absolute bottom-0 bg-slate-700 bg-opacity-90 flex flex-col gap-2 p-4">
+                            <HeadingThreeXlwhite>{ data.image_subtitle }</HeadingThreeXlwhite>
+                            <ParagraphMediumWhite>{ data.image_description }</ParagraphMediumWhite>
+                            <Link href={ data.image_link }>
+                                <ParagraphSemiboldWhite>{ data.image_link_text }</ParagraphSemiboldWhite>
+                            </Link>
+                        </div>
                     </div>
                 </div>
             </div>

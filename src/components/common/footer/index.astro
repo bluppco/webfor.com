@@ -1,11 +1,160 @@
 ---
 
+// IMPORT ASTRO COLLECTION
+import { getCollection } from "astro:content"
+
+// IMPORT FOOTER COLLECTION
+let footer_data = await getCollection("footer")
+footer_data = footer_data.sort( ( a, b ) => a.data.order - b.data.order )
+
+// GET MARKDOWN DATA
+import  { frontmatter as bottom_title }  from "@/content/footer-extras/bottom-title.md"
+import  { frontmatter as bottom_links } from "@/content/footer-extras/bottom-links.md"
+import { frontmatter as bottom_pictures } from "@/content/footer-extras/bottom-pictures.md"
+import { frontmatter as contact_data } from "@/content/footer-extras/contact-data.md"
+
+const bottom_link = bottom_links.links
+const bottom_picture = bottom_pictures.pictures
+const contact_info = contact_data.data
+
 // IMPORT ASTRO LAYOUTS
-import Container from "@/layouts/container/index.astro"
+import Container from "@/layouts/container-custom/index.astro"
+
+// IMPORT ASTRO COMPONENTS
+import Form from "@/components/common/footer/form/index.astro"
+
+// IMPORT JSX COMPONENTS
+import SocialIcons from "@/components/common/footer/socials/jsx/index"
+
+// IMPORT ASTRO ATOMS
+import ButtonWhite from "@/atoms/atoms-shiva/buttons/white/index.astro"
+import Link from "@/atoms/links/index.astro"
+import ParagraphBaseItalic from "@/atoms/atoms-shiva/paragraphs/base/medium/italic/white/index.astro"
+import ParagraphBaseWhite from "@/atoms/atoms-shiva/paragraphs/base/white/index.astro"
+import ParagraphLgWhite from "@/atoms/atoms-shiva/paragraphs/lg/semibold/white/index.astro"
+import ParagraphSmWhite from "@/atoms/atoms-shiva/paragraphs/sm/white/index.astro"
+import PictureContain from "@/atoms/picture/internal/contain/index.astro"
 
 ---
-<footer class="bg-black py-20">
+
+<footer class="bg-blue-500 py-20 lg:px-0 sm:px-14">
     <Container>
-        <p class="text-white">I am footer</p>
+        <div class="flex flex-col items-center lg:flex-row gap-14">
+            <div class="flex flex-col gap-6">
+                <div class="max-w-72 aspect-[5/2]">
+                    <PictureContain
+                        alternative_text=""
+                        source="/logos/webfor-footer.svg"
+                    />
+                </div>
+                <Form/>
+            </div>
+            <div class="">
+                <ul class="flex flex-col lg:flex-row gap-8 py-4 border-b border-gray-200">
+                    {
+
+                        footer_data.map( ( item ) => {
+
+                            return (
+
+                                <li class="flex flex-col gap-1">
+                                    <ParagraphLgWhite>{ item.data.title }</ParagraphLgWhite>
+                                    {
+
+                                        item.data.items.map( ( sub_item ) => {
+
+                                            return (
+
+                                                <div class="relative group">
+                                                    <Link href={ sub_item.link }>
+                                                        <span class="text-white font-montserrat block relative">
+                                                            { sub_item.title }
+                                                            <span class="absolute inset-0 border-b-2 border-transparent group-hover:border-white transition-transform duration-300 transform scale-x-0 group-hover:scale-x-100 origin-center"></span>
+                                                        </span>
+                                                    </Link>
+                                                </div>
+
+                                            )
+
+                                        })
+
+                                    }
+                                </li>
+
+                            )
+
+                        })
+
+                    }
+                </ul>
+                <div class="flex flex-col gap-6 py-4">
+                    <div>
+                        <ParagraphSmWhite>{ bottom_title.title }</ParagraphSmWhite>
+                        <div class="flex flex-col lg:flex-row">
+                            {
+
+                                bottom_link.map( ( data ) => (
+
+                                    <div class="relative group">
+                                        <Link href={ data.link }>
+                                            <span class="text-sm text-white font-montserrat block relative">
+                                                { data.link_text }
+                                                <span class="hidden lg:block absolute inset-0 border-b border-transparent group-hover:border-white transition-transform duration-300 transform scale-x-0 group-hover:scale-x-100 origin-center"></span>
+                                            </span>
+                                        </Link>
+                                    </div>
+
+                                ))
+
+                            }
+                        </div>
+                    </div>
+                    <div class="flex flex-col lg:flex-row gap-6">
+                        {
+
+                            bottom_picture.map( ( data ) => (
+
+                                data.link ? (
+
+                                    <Link href={ data.link }>
+                                        <div class="size-20">
+                                            <PictureContain
+                                                alternative_text={ data.alternative_text }
+                                                source={ data.source }
+                                            />
+                                        </div>
+                                    </Link>
+
+                                ) : (
+
+                                    <div class="size-20">
+                                        <PictureContain
+                                            alternative_text={ data.alternative_text }
+                                            source={ data.source }
+                                        />
+                                    </div>
+
+                                )                          
+
+                            ))
+
+                        }
+                    </div>
+                    <ParagraphBaseItalic>{ bottom_title.quote }</ParagraphBaseItalic>
+                </div>
+            </div>
+            <div class="flex flex-col gap-4 py-4">
+                <div class="flex flex-col gap-1">
+                    <ParagraphLgWhite>{ contact_info.title }</ParagraphLgWhite>
+                    <ParagraphBaseWhite>{ contact_info.address }</ParagraphBaseWhite>
+                    <ParagraphBaseWhite>{ contact_info.email }</ParagraphBaseWhite>
+                    <ParagraphBaseWhite>{ contact_info.phone }</ParagraphBaseWhite>
+                </div>
+                <SocialIcons/>
+                <Link href={ contact_info.button_link }>
+                    <ButtonWhite>{ contact_info.button_text }</ButtonWhite>
+                </Link>
+            </div>
+        </div>
     </Container>
 </footer>

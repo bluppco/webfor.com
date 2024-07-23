@@ -1,0 +1,39 @@
+---
+
+// IMPORT ATSRO LAYOUTS
+import Container from "@/layouts/container-custom/index.astro"
+
+// IMPORT ASTRO ATOMS
+import ButtonWhite from "@/atoms/atoms-shiva/buttons/white/index.astro"
+import HeadingTwoThreeXlWhiteCenter from "@/atoms/atoms-shiva/headings/two/three-xl/white/center/index.astro"
+import ParagraphXlWhiteCenter from "@/atoms/atoms-shiva/paragraphs/xl/white/center/index.astro"
+import PictureContain from "@/atoms/picture/internal/contain/index.astro"
+
+// HARDCODED DATA
+const data = {
+
+    button_link: "/",
+    button_text: "GET STARTED",
+    source: "/images/grow-brand.png",
+    subtitle: "Find out how we can help you grow your brand.",
+    title: "WE’RE THE BEST AT WHAT WE DO, AND WE CAN PROVE IT.",
+
+}
+
+---
+
+<section class="bg-blue-500 py-10">
+    <Container>
+        <div class="flex flex-col items-center justify-center gap-8 lg:flex-row lg:gap-14">
+            <div class="max-w-28 aspect-square">
+                 <PictureContain
+                    alternative_text=""
+                    source={ data.source }
+                />
+            </div>
+            <HeadingTwoThreeXlWhiteCenter>{ data.title }</HeadingTwoThreeXlWhiteCenter>
+            <ParagraphXlWhiteCenter>{ data.subtitle }</ParagraphXlWhiteCenter>
+            <ButtonWhite>{ data.button_text }</ButtonWhite>
+        </div>
+    </Container>
+</section>

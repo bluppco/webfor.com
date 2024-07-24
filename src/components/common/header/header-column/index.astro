@@ -1,0 +1,32 @@
+---
+
+// IMPORT ASTRO ATOMS
+import Link from "@/atoms/links/index.astro"
+// import ListItemWhite from "@/atoms/atoms-nandini/list-items/white/index.astro"
+
+// GET ASTRO PROPS
+const { data } = Astro.props
+
+---
+<section>
+    <ul class="flex gap-4">
+        {
+
+            data.map( ( item ) => {
+
+                return (
+                    
+                        <li class="text-white text-lg ">
+                            <Link
+                                aria-label={ "explore " + item.data.title }
+                                href={ item.data.link }
+                            >
+                                { item.data.title }
+                            </Link>
+                        </li>
+
+                )
+            })
+        }
+    </ul>
+</section>

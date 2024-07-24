@@ -1,0 +1,31 @@
+---
+
+//IMPORT ASTRO ATOMS
+import ParagraphBoldSlate700 from "@/atoms/atoms-diksha/paragraphs/bold/slate-700/index.astro"
+import Picture from "@/atoms/picture/internal/index.astro"
+
+//CONSTANTS
+const user_content = {
+    image:"https://via.placeholder.com/56",
+    name: "Julia Maglione",
+    company: "Workforce Southwest Washington",
+    designation: "New Logo and Website Design",
+}
+
+---
+
+<div class="flex gap-4 items-center">
+    <div class="w-14 aspect-square border-2 border-white">
+        <Picture
+            alternative_text="user"
+            source={ user_content.image }
+        />
+    </div>
+    <div class="flex flex-col items-start">
+        <ParagraphBoldSlate700>
+            { user_content.name }
+            <span class="font-normal"> / { user_content.company }</span>
+        </ParagraphBoldSlate700>
+        <ParagraphBoldSlate700>{ user_content.designation }</ParagraphBoldSlate700>
+    </div>
+</div>

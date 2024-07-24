@@ -1,35 +1,30 @@
 ---
 
+// GET MARKDOWN DATA
+import  { frontmatter as form_data }  from "@/content/footer-extras/form.md"
+
+// IMPORT ASTRO COMPONENTS
+import Input from "@/components/common/footer/form/input/index.astro"
+
 // IMPORT ASTRO ATOMS
 import ButtonTransparentBorderWhite from "@/atoms/atoms-shiva/buttons/transparent/border-white/index.astro"
 import Link from "@/atoms/links/index.astro"
 import ParagraphBaseBoldWhite from "@/atoms/atoms-shiva/paragraphs/base/bold/white/index.astro"
 import ParagraphBaseWhite from "@/atoms/atoms-shiva/paragraphs/base/white/index.astro"
 
-// HARDCODED DATA
-const data = {
-
-    button_link:"/",
-    button_text:"JOIN THE LIST",
-    input_title: "'*' indicates required fields",
-    subtitle: "Subscribe for marketing news, strategies, and more.",
-    title: "Get the free monthly newsletter from Webfor.",
-
-}
-
 ---
 
 <form class="flex flex-col gap-8 bg-blue-400 p-8 max-w-80">
     <div class="flex flex-col gap-2">
-        <ParagraphBaseBoldWhite>{ data.title }</ParagraphBaseBoldWhite>
-        <ParagraphBaseWhite>{ data.subtitle }</ParagraphBaseWhite>
+        <ParagraphBaseBoldWhite>{ form_data.title }</ParagraphBaseBoldWhite>
+        <ParagraphBaseWhite>{ form_data.subtitle }</ParagraphBaseWhite>
     </div>
     <div class="flex flex-col gap-4">
-        <ParagraphBaseWhite>{ data.input_title }</ParagraphBaseWhite>
-        <input class="bg-white p-2 placeholder:italic w-full" type="text" placeholder="Enter your name" />
-        <input class="bg-white p-2 placeholder:italic w-full" type="text" placeholder="Your work email" />
+        <ParagraphBaseWhite>{ form_data.input_title }</ParagraphBaseWhite>
+        <Input placeholder="Enter your name" />
+        <Input placeholder="Your work email" />
     </div>
-    <Link href={ data.button_link }>
-        <ButtonTransparentBorderWhite>{ data.button_text }</ButtonTransparentBorderWhite>
+    <Link href={ form_data.button_link }>
+        <ButtonTransparentBorderWhite>{ form_data.button_text }</ButtonTransparentBorderWhite>
     </Link>
 </form>

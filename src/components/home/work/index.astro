@@ -1,0 +1,47 @@
+---
+
+// IMPORT ASTRO lAYOUTS
+import Container from "@/layouts/container-custom/index.astro"
+
+// IMPORT ASTRO ATOMS
+import HeadingTwoThreeXlBlue from "@/atoms/atoms-shiva/headings/two/three-xl/blue/index.astro"
+import Link from "@/atoms/links/index.astro"
+import ParagraphBaseMedium from "@/atoms/atoms-shiva/paragraphs/base/medium/index.astro"
+import ParagraphLgBoldBlueHover from "@/atoms/atoms-shiva/paragraphs/lg/bold/blue/hover/index.astro"
+import PictureCover from "@/atoms/picture/internal/index.astro"
+
+// HARDCODED DATA
+const data = {
+
+    description_one: "If you’re here right now, you’re probably looking for something better. Better strategy. Better results. Better communication of what’s being done on your behalf and why. Simply put, Webfor is the better choice. If we partner with you, we will treat your business like it’s our own, because we know that our success depends on your success.",
+    description_three: "We love what we do. We love where we work. And we love delivering results.",
+    description_two: "We work hard to establish clear, collaborative strategies with our clients. We dig in and get results.",
+    link_text: "Check out how we’ve helped businesses break records.",
+    link: "/",
+    source: "/images/work.jpg",
+    title: "We Strive To Be The Best In Our Industry. Always Improving. Always Celebrating Your Successes.",
+
+}
+
+---
+
+<section class="py-12">
+    <Container>
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-16">
+            <div class="w-full aspect-[5/4]">
+                <PictureCover
+                    alternative_text=""
+                    source={ data.source }
+                />
+            </div>
+            <div class="flex flex-col gap-6">
+                <HeadingTwoThreeXlBlue>{ data.title }</HeadingTwoThreeXlBlue>
+                <ParagraphBaseMedium>{ data.description_one }</ParagraphBaseMedium>
+                <ParagraphBaseMedium>{ data.description_two }</ParagraphBaseMedium>
+                <Link href={ data.link }>
+                    <ParagraphLgBoldBlueHover>{ data.link_text }</ParagraphLgBoldBlueHover>
+                </Link>
+            </div>
+        </div>
+    </Container>
+</section>

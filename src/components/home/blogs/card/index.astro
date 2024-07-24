@@ -1,0 +1,81 @@
+---
+
+// IMPORT CUSTOM CSS
+import "@/styles/custom.css"
+
+// IMPORT ASTRO ATOMS
+import ButtonBlue from "@/atoms/atoms-shiva/buttons/blue/index.astro"
+import Link from "@/atoms/links/index.astro"
+import ParagraphLgBoldWhiteCenter from "@/atoms/atoms-shiva/paragraphs/lg/bold/white/center/index.astro"
+import ParagraphSmWhiteCenter from "@/atoms/atoms-shiva/paragraphs/sm/white/center/index.astro"
+import ParagraphSmWhiteSemiboldCenter from "@/atoms/atoms-shiva/paragraphs/sm/semibold/white/center/index.astro"
+import PictureContain from "@/atoms/picture/internal/contain/index.astro"
+
+// HARDCODED DATA
+const data = {
+
+    button_text: "READ THE FULL STORY",
+    written_by: "Written by ",
+
+}
+
+// GET ASTRO PROPS
+const {
+
+    background,
+    date,
+    domains,
+    link,
+    name,
+    position,
+    source,
+    title,
+
+} = Astro.props
+
+---
+
+<div class={`flex flex-col gap-4 items-center justify-center min-h-[400px] relative p-4 bg-center bg-cover ${ background }`}>
+    <div class="flex flex-col gap-2">
+        <ParagraphSmWhiteCenter>
+            { date }
+            {
+
+                domains.map( ( item ) => (
+
+                    <Link href={ item.link }>
+                        <span class="hover:underline duration-150">{ item.link_text }</span>
+                    </Link>
+
+                ))
+
+            }
+        </ParagraphSmWhiteCenter>
+        <Link href={ link }>
+            <ParagraphLgBoldWhiteCenter>{ title }</ParagraphLgBoldWhiteCenter>
+        </Link>
+    </div>
+    <div class="size-14 rounded-full overflow-hidden">
+        <PictureContain
+            alternative_text=""
+            source={ source }
+        />
+    </div>
+    <div class="flex flex-col gap-1">
+        <ParagraphSmWhiteSemiboldCenter>
+            { data.written_by }
+            { name }
+        </ParagraphSmWhiteSemiboldCenter>
+        {
+
+            position &&
+            <ParagraphSmWhiteCenter>{ position }</ParagraphSmWhiteCenter>
+
+        }
+    </div>
+    <div class="absolute bottom-0 w-full">
+        <Link href={ link }>
+            <ButtonBlue>{ data.button_text }</ButtonBlue>
+        </Link>
+    </div>
+</div>

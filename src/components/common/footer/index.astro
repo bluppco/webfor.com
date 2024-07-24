@@ -7,6 +7,23 @@ import { getCollection } from "astro:content"
 let footer_data = await getCollection("footer")
 footer_data = footer_data.sort( ( a, b ) => a.data.order - b.data.order )
 
+// FILTER THE ITEMS IN EACH FOOTER DATA FILES BY LIVE
+footer_data = footer_data.map( footer => {
+
+    return {
+
+        ...footer,
+        data: {
+
+            ...footer.data,
+            items: footer.data.items.filter(item => item.live)
+
+        }
+
+    }
+
+})
+
 // GET MARKDOWN DATA
 import  { frontmatter as bottom_title }  from "@/content/footer-extras/bottom-title.md"
 import  { frontmatter as bottom_links } from "@/content/footer-extras/bottom-links.md"

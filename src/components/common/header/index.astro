@@ -1,13 +1,46 @@
 ---
 
+// IMPORT ASTRO COLLECTION
+import { getCollection } from 'astro:content'
+
+// IMPORT HEADER COLUMN COLLECTION
+let header_column = await getCollection('header-column')
+header_column = header_column.sort( ( a, b ) => a.data.order - b.data.order).filter( ( item ) => item.data.live )
+
+
 // IMPORT ASTRO LAYOUTS
 import Container from "@/layouts/container/index.astro"
 
+// IMPORT ASTRO COMPONENTS
+import HeaderColumn from "@/components/common/header/header-column/index.astro"
+// import FooterColumnImage from "@/components/common/footer/columns-images/index.astro"
+// import FooterColumnLeft from "@/components/common/footer/column-left/index.astro"
+
+// IMPORT ASTRO ATOMS
+import PictureInternal from "@/atoms/picture/internal/index.astro"
+// import HeadingThree5xlExtraboldWhite from "@/atoms/atoms-nandini/headings/three/5xl/extrabold/white/index.astro"
+// import ParagraphExtrasmallWhite from "@/atoms/atoms-nandini/paragraphs/xs/white/index.astro"
+
+// IMPORT DATA FROM FRONT-MATTER
+import { frontmatter as button } from "@/content/header-button/button.md"
+import { frontmatter as icon } from "@/content/header-icon/icon.md"
+
+// HARDCODED DATA
+const button_text = button.title
+const icon_link  = icon.link
+
 ---
-<header class="bg-blue-600 h-12">
+<footer class="bg-black py-5 px-10">
     <Container>
-        <section class="flex items-center h-full">
-            <p class="text-white">I am header</p>
-        </section>
+        <div class="flex justify-between">
+            <div>
+                <PictureInternal
+                    alternative_text="",
+                    source={ icon_link }
+                />
+            </div>
+            <HeaderColumn data={ header_column }/>
+            <button class="text-white text-lg tracking-widest font-bold bg-orange-400 hover:bg-blue-500 font-proxima_nova rounded-full px-7 uppercase">{ button_text }</button>
+        </div>
     </Container>
-</header>
+</footer>

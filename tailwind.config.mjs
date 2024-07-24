@@ -51,7 +51,8 @@ module.exports = {
 			},
 			fontFamily: {
 
-				"montserrat": [ "Montserrat", "sans-serif" ]
+				"montserrat": [ "Montserrat", "sans-serif" ],
+				"proxima_nova": [ "proxima-nova", "sans-serif" ]
 
 			}
 

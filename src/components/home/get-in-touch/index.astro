@@ -1,0 +1,46 @@
+<!-- ---
+
+// IMPORT ASTRO LAYOUTS
+import Container from "@/layouts/container/index.astro"
+
+// IMPORT ASTRO ATOMS
+import PictureInternal from "@/atoms/picture/internal/index.astro"
+import Link from "@/atoms/links/index.astro"
+
+// HARDCODED DATA
+const data = {
+
+    button:"get started",
+    contact:"360.550.9578",
+    desc:"Get in touch to receive a free discovery session, analysis and recommendation. We take a comprehensive approach to your specific needs. We don’t just say we can get results; we get them.",
+    title:"Your New Path To Growth And Customer Acquisition Starts Here.",
+    
+}
+
+---
+
+
+
+<section class="relative">
+
+    <div>
+        <PictureInternal
+            alternative_text="bg-image"
+            source="/get-in-touch-bg-image.jpg"
+        />
+    </div>
+
+    <Container>
+        <div class="absolute top-0 my-10 space-y-10">
+            <h3 class="font-montserrat text-white text-2xl text-center">{ data.title }</h3>
+            <p class="text-white text-center font-sans">{ data.desc }</p>
+            <div class="flex justify-center items-center gap-5">
+                <button class="bg-white text-black rounded-full uppercase font-sans tracking-wide font-bold px-4 py-2">{ data.button }</button>
+                <Link
+                    aria_label=""
+                    href="tel:3605509578"
+                ><p class="text-white font-sans hover:underline">{ data.contact }</p></Link>
+            </div>
+        </div>
+    </Container>
+</section> -->

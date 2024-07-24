@@ -1,0 +1,37 @@
+<!-- ---
+
+// IMPORT ASTRO LAYOUTS
+import Container from "@/layouts/container/index.astro"
+
+// IMPORT ASTRO ATOMS
+import Link from "@/atoms/links/index.astro"
+import PictureInternal from "@/atoms/picture/internal/index.astro"
+
+---
+
+
+<section class="bg-blue-200 opacity-70 py-2" ><!-- id="banner" -->
+    <Container>
+        <div class="flex justify-between">
+            <div class="flex gap-1 justify-center mx-auto">
+                <p class="font-sans text-blue-600 text-lg">Get 3 free hours of digital marketing strategy!</p>
+                <Link aria_label="" href="/get-started/"><p class="font-sans font-semibold text-blue-600 text-lg underline hover:no-underline"> Fill out the form.</p></Link>
+            </div>
+            <div>
+                <button class="w-3 aspect-auto"><!-- onclick="vanish()" -->
+                    <PictureInternal
+                        alternative_text="Image"
+                        source="/delete-icon.svg"
+                    />
+                </button>
+            </div>
+        </div>
+    </Container>
+</section> -->
+<!-- 
+<script type="text/javascript">
+    function vanish(){
+        document.querySelector('#banner').classList.toggle('hidden');
+    }
+    vanish()
+</script> -->

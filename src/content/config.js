@@ -10,6 +10,7 @@ const footerCollection = defineCollection({
 
             z.object({
 				title: z.string(),
+                live: z.boolean(),
                 order: z.number(),
 				link: z.string(),
 			})

@@ -24,6 +24,10 @@ module.exports = {
 		},
     	extend: {
 
+			backgroundImage: theme => ({
+				'light-radial-gradient': 'radial-gradient(circle, rgba(255, 255, 255, 0.25), rgba(255, 255, 255, 0))',
+			}),
+
 			keyframes: {
 
 				"accordion-down": {
@@ -49,7 +53,8 @@ module.exports = {
 				color:{
 					primary: "#0492ff",
 					secondary: "#139f2d",
-					tertiary: "#0492ff"
+					tertiary: "#e0efff",
+					accent:"#f37b43",
 				}
 
 			},

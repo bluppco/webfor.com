@@ -1,0 +1,48 @@
+---
+
+//IMPORT ASTRO LAYOUTS
+import Container from "@/layouts/container/index.astro"
+
+//IMPORT ASTRO ATOMS
+import ButtonWhite from "@/atoms/atoms-diksha/buttons/white/index.astro"
+import HeadingFourThreeXlBoldUppercaseCenterWhite from "@/atoms/atoms-diksha/headings/four/3xl/bold/uppercase/center/white/index.astro"
+import Link from "@/atoms/links/index.astro"
+import ParagraphBoldUppercaseWhite from "@/atoms/atoms-diksha/paragraphs/bold/uppercase/white/index.astro"
+import Picture from "@/atoms/picture/internal/index.astro"
+
+//GET ASTRO PROPS
+const { isRight} = Astro.props
+
+//CONSTANTS
+const display_content ={
+    title: "WE HELP PEOPLE. THAT MEANS YOU, TOO. GET IN TOUCH FOR A FREE CONSULTATION AND DISCOVERY SESSION.",
+    button_text: "Get Started",
+    text: "360.550.9578"
+}
+
+---
+
+<Container>
+    <div class={`flex flex-col lg:flex-row`}>
+        <div class="bg-color-primary bg-light-radial-gradient w-full lg:w-1/2 px-16 py-40 flex flex-col items-center justify-center gap-6">
+            <div class="w-14 aspect-square">
+                <Picture
+                    alternative_text="email"
+                    source="/images/icon-email.svg"/>
+            </div>
+            <HeadingFourThreeXlBoldUppercaseCenterWhite>{ display_content.title }</HeadingFourThreeXlBoldUppercaseCenterWhite>
+            <div class="flex flex-row justify-center items-center gap-6">
+                <Link
+                    aria_label="get started"
+                    source="/"
+                >
+                    <ButtonWhite>{ display_content.button_text }</ButtonWhite>
+                </Link>
+                <ParagraphBoldUppercaseWhite>{ display_content.text }</ParagraphBoldUppercaseWhite>
+            </div>
+        </div>
+        <div class="bg-color-tertiary w-full lg:w-1/2 px-12 py-40 flex flex-col items-center justify-center gap-6">
+            <!-- testimonial -->
+        </div>
+    </div>
+</Container>

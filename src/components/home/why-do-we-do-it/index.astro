@@ -1,0 +1,80 @@
+---
+
+// IMPORT ASTRO LAYOUTS
+import Container from "@/layouts/container-custom/index.astro"
+
+// IMPORT ASTRO ATOMS
+import HeadingTwoBlue from "@/atoms/atoms-shiva/headings/two/three-xl/blue/index.astro"
+import Link from "@/atoms/links/index.astro"
+import ParagraphBaseMedium from "@/atoms/atoms-shiva/paragraphs/base/medium/index.astro"
+import ParagraphLgBoldBlueHover from "@/atoms/atoms-shiva/paragraphs/lg/bold/blue/hover/index.astro"
+import ParagraphTwoXlMediumWhite from "@/atoms/atoms-shiva/paragraphs/two-xl/medium/white/center/index.astro"
+import PictureContain from "@/atoms/picture/internal/contain/index.astro"
+
+// HARDCODED DATA
+const data = {
+
+    description_one_bold: "We love being experts and remaining ahead of the digital marketing",
+    description_one: "We love digital marketing, and we love helping you succeed. The industry is always changing, and, as a result, we are always learning. We love being experts and remaining ahead of the digital marketing curve. We believe our clients should get a return on their marketing investment.",
+    description_three: "Are you communicating why you exist? How are you different? What makes you unique? What makes you you? Through collaboration and data analysis, we’ll uncover messaging that resonates and gets your audience to take action. Then, we put you in front of an audience that may not yet know you exist — but wants exactly what you offer.",
+    description_two: "We touch it all — from brand messaging and design to website development and conversion rate optimization. What’s the user experience like? Let’s dive in and understand your customer’s journey from discovery to conversion. Let’s champion your brand.",
+    link_text: "Learn more about us, our values and our culture.",
+    link: "/",
+    title: "So Why Do We Do It ?",
+
+}
+const card_data = {
+
+    description: "We help you succeed by establishing an attractive and stable presence for your business online. Reach your goals by engaging with us. We’re Webfor — your dedicated creative and marketing team.",
+    gradient_text_bold: "That’s our why.",
+    gradient_text: "Our objective is to go beyond making new customers. We want new raving fans! It’s design. It’s code. It’s search. It’s social. It’s all about you. That’s our why.",
+    source: "/logos/webfor-heart.svg",
+    title: "Relationships + Results + ROI",
+
+}
+
+// FUNCTION TO ADD BOLD TEXT
+function insertBoldText( text, boldPart ) {
+
+    return text.replace( boldPart, `<span class="font-bold">${ boldPart }</span>` )
+
+}
+const descriptionOneWithBold = insertBoldText( data.description_one, data.description_one_bold )
+const gradientTextWithBold = insertBoldText( card_data.gradient_text, card_data.gradient_text_bold )
+
+---
+
+<section class="py-12">
+    <Container>
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-16">
+            <div class="flex flex-col gap-6">
+                <HeadingTwoBlue>{ data.title }</HeadingTwoBlue>
+                <ParagraphBaseMedium set:html={ descriptionOneWithBold } />
+                <ParagraphBaseMedium>{ data.description_two }</ParagraphBaseMedium>
+                <ParagraphBaseMedium>{ data.description_three }</ParagraphBaseMedium>
+                <Link href={ data.link }>
+                    <ParagraphLgBoldBlueHover>{ data.link_text }</ParagraphLgBoldBlueHover>
+                </Link>
+            </div>
+            <div class="grid grid-rows-2 gap-6">
+                <div class="flex items-center justify-center px-8" style="background: linear-gradient(-45deg, #0087f9, #00c045);">
+                    <ParagraphTwoXlMediumWhite set:html={ gradientTextWithBold } />
+                </div>
+                <div class="grid grid-cols-3 gap-4 px-4">
+                    <div class="flex items-center justify-center">
+                        <div class="size-32">
+                            <PictureContain
+                                alternative_text=""
+                                source={ card_data.source }
+                            />
+                        </div>
+                    </div>
+                    <div class="col-span-2 flex flex-col gap-4">
+                        <HeadingTwoBlue>{ card_data.title }</HeadingTwoBlue>
+                        <ParagraphBaseMedium>{ card_data.description }</ParagraphBaseMedium>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </Container>
+</section>

@@ -26,6 +26,7 @@ module.exports = {
 
 			backgroundImage: theme => ({
 				'light-radial-gradient': 'radial-gradient(circle, rgba(255, 255, 255, 0.25), rgba(255, 255, 255, 0))',
+				'slanting-blue-green-gradient': 'linear-gradient(45deg, #0492ff 0%, #139f2d 100%)',
 			}),
 
 			keyframes: {

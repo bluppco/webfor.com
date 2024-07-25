@@ -1,0 +1,15 @@
+---
+
+//IMPORT ASTRO ATOMS
+import HeadingFiveTwoXlMediumCenterWhite from "@/atoms/atoms-diksha/headings/five/2xl/medium/center/white/index.astro"
+import HeadingThreeSixXlBoldWhite from "@/atoms/atoms-diksha/headings/three/6xl/bold/white/index.astro"
+
+//GET ASTRO PROPS
+const { data } = Astro.props
+
+---
+
+<div class="flex flex-col items-center justify-center gap-3 py-12 px-4 rounded-3xl bg-slanting-blue-green-gradient">
+    <HeadingThreeSixXlBoldWhite>{ data.figure}</HeadingThreeSixXlBoldWhite>
+    <HeadingFiveTwoXlMediumCenterWhite>{ data.info }</HeadingFiveTwoXlMediumCenterWhite>
+</div>

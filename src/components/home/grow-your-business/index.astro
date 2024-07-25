@@ -1,0 +1,80 @@
+---
+
+// IMPORT ASTRO LAYOUTS
+import Container from "@/layouts/container-custom/index.astro"
+
+// IMPORT ASTRO COMPONENTS
+import Card from "@/components/home/grow-your-business/blue-green-card/index.astro"
+import CaseStudyCard from "@/components/home/grow-your-business/case-study-card/index.astro"
+
+//IMPORT ASTRO ATOMS
+import ButtonPrimary from "@/atoms/atoms-diksha/buttons/primary/index.astro"
+import HeadingFourThreeXlLightSlate700 from "@/atoms/atoms-diksha/headings/four/3xl/light/slate700/index.astro"
+import HeadingThreeFiveXlSemiboldUppercasePrimary from "@/atoms/atoms-diksha/headings/three/5xl/semibold/uppercase/primary/index.astro"
+import Link from "@/atoms/links/index.astro"
+import ParagraphBoldPrimary from "@/atoms/atoms-diksha/paragraphs/bold/primary/index.astro"
+import ParagraphLgBoldSlate700 from "@/atoms/atoms-diksha/paragraphs/lg/bold/slate700/index.astro"
+import ParagraphLg from "@/atoms/atoms-diksha/paragraphs/lg/index.astro"
+import Picture from "@/atoms/picture/internal/index.astro"
+
+//CONSTANTS
+const card_data = [
+    {   
+        info: "Increase in keyword ranking YOY across all clients.",
+        figure: "64.9%",
+    },
+    {   
+        info: "Increase to conversion rates through A/B testing.",
+        figure: "20-30%",
+    },
+]
+const content = {
+    title:"WE TAKE YOUR BUSINESS TO PLACES IT’S NEVER BEEN.",
+    description1:"Anything worth having takes hard work. That’s where we come in. We have the experience and the expertise to uncover (via fruitful collaboration and communication) the uniqueness that is your business. We take that and amplify it to your target audience. We do hundreds (upon hundreds) of intricate tasks to get and keep strategic visibility for our clients.",
+    description2:"We test. We measure. Then we test and measure some more. We’re always looking for ways to grow your exposure. Open lines of communication and collaboration ensure our efforts match your objectives and growth strategy as a business.",
+    subtitle:"You will know our efforts are working because you will experience growth in very real, very tangible ways.",
+}
+
+---
+
+<Container>
+    <div class="flex flex-col lg:flex-row gap-16 justify-between">
+        <div class="flex flex-col gap-10 w-full lg:w-1/2">
+            <HeadingFourThreeXlLightSlate700>We Provide A Full Suite Of Marketing Services To Meet Your Needs.</HeadingFourThreeXlLightSlate700>
+            <div class="flex flex-col lg:flex-row gap-8 mt-4 lg:mt-8">
+                {
+
+                    card_data.map( ( data ) => (
+
+                        <Card data={ data }/>
+
+                    ))
+
+                }
+            </div>
+            <CaseStudyCard/>
+        </div>
+        <div class="flex flex-col gap-6 w-full lg:w-1/2">
+            <div class="w-12 aspect-square">
+                <Picture
+                    alternative_text="chart"
+                    source="/images/icon-chart.svg"
+                />
+            </div>
+            <HeadingThreeFiveXlSemiboldUppercasePrimary>{ content.title }</HeadingThreeFiveXlSemiboldUppercasePrimary>
+            <ParagraphLg>{ content.description1 }</ParagraphLg>
+            <ParagraphLg>{ content.description2 }</ParagraphLg>
+            <ParagraphLgBoldSlate700>{ content.subtitle }</ParagraphLgBoldSlate700>
+            <div class="flex flex-row gap-6 items-center">
+                <Link
+                    aria-label="Get Started"
+                    href="/"
+                >
+                    <ButtonPrimary>Get Started</ButtonPrimary>
+                </Link>
+                <ParagraphBoldPrimary> Browse our content marketing services.</ParagraphBoldPrimary>
+            </div>
+        </div>
+    </div>
+</Container>
+

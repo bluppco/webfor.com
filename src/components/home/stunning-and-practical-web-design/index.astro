@@ -1,0 +1,138 @@
+---
+
+// IMPORT ASTRO LAYOUTS
+import Container from "@/layouts/container-custom/index.astro"
+
+// IMPORT ASTRO ATOMS
+import HeadingTwoFourXlSemiboldBlue from "@/atoms/atoms-shiva/headings/two/four-xl/semibold/blue/center/index.astro"
+import HeadingThreeXlwhite from "@/atoms/atoms-shiva/headings/three/xl/semibold/white/index.astro"
+import HeadingTwoThreeXlBlue from "@/atoms/atoms-shiva/headings/two/three-xl/blue/index.astro"
+import Link from "@/atoms/links/index.astro"
+import ParagraphBaseMedium from "@/atoms/atoms-shiva/paragraphs/base/medium/index.astro"
+import ParagraphLgBoldBlue from "@/atoms/atoms-shiva/paragraphs/lg/bold/blue/index.astro"
+import ParagraphLgBoldBlueHover from "@/atoms/atoms-shiva/paragraphs/lg/bold/blue/hover/index.astro"
+import ParagraphMediumWhite from "@/atoms/atoms-shiva/paragraphs/base/medium/white/index.astro"
+import ParagraphSemiboldWhite from "@/atoms/atoms-shiva/paragraphs/base/semibold/white/index.astro"
+import ParagraphTwoXlWhite from "@/atoms/atoms-shiva/paragraphs/two-xl/white/center/index.astro"
+import PictureContain from "@/atoms/picture/internal/contain/index.astro"
+
+
+// HARDCODED DATA
+const data = {
+
+    title: "STUNNING AND PRACTICAL WEB DESIGN TO EXPAND YOUR BUSINESS’ REACH.",
+    source: "/icons/webfor-art.svg",
+
+}
+const left_container_data = {
+
+    description_one: "Your identity. Your name. Your logo. Your brand is the proverbial first impression that’s so important when conducting business. We capture your essence and make it pretty, bold, and inviting. Most of all, it will resonate with your existing customers and invoke interest with potential customers.",
+    description_two: "You’ll use this everywhere. Your website (naturally), letterhead, business cards, swag, and even vehicle wraps if that’s your thing. Your branding needs to look good at any size and on any medium. When you work with Webfor, it will.",
+    link_one_text: "View our web design services.",
+    link_one: "/",
+    link_two_text: "View our branding and creative design services.",
+    link_two: "/",
+    source_one: "/images/stunning-1.jpg",
+    source_three: "/images/stunning-3.jpg",
+    source_two: "/images/stunning-2.jpg",
+    title: "Well-Crafted Materials For Your Business Are Something We Take Very Seriously.",
+
+}
+const right_container_data = {
+
+    description_one: "Webfor understands how users interact with your website. This understanding allows us to anticipate user experience, head off problems before they arise, and provide necessary updates as technology improves. (Plus, our developers are well-caffeinated; keeps them nice and agile.)",
+    description_two: "Of course, killer design never goes out of style. The combination of substance and aesthetic means your website not only looks better than the competition but it also performs better too.",
+    link_text: "Take a look at our bar-setting branding and design services.",
+    link: "/",
+    source: "/images/webfor-logodesign.jpg",
+    title: "We Provide Branding Services That Give You That Suited-Up James Bond Luxury Vibe.",
+
+}
+const right_container_card_data = {
+
+    description: "New logo, new branding, new everything and it looks incredible.",
+    link_text: "Read the rest of the study.",
+    link: "/",
+    subtitle: "Ruff Roads Mobile Grooming",
+    title: "CASE STUDY",
+
+}
+
+---
+
+<section class="py-12">
+    <Container>
+        <div class="flex flex-col gap-8">
+            <div class="flex flex-col items-center justify-center gap-4 lg:px-72">
+                <div class="size-28">
+                    <PictureContain
+                        alternative_text=""
+                        source={ data.source }
+                    />
+                </div>
+                <HeadingTwoFourXlSemiboldBlue>{ data.title }</HeadingTwoFourXlSemiboldBlue>
+            </div>
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-10">
+                <div class="flex flex-col gap-6">
+                    <div class="relative w-full h-[130vh] overflow-hidden">
+                        <div class="absolute top-8 left-0 h-[90%] aspect-[7/16]">
+                            <PictureContain
+                                alternative_text=""
+                                source={ left_container_data.source_one }
+                            />
+                        </div>
+                        <div class="absolute inset-0 z-10 flex justify-center items-center h-full w-full">
+                            <PictureContain
+                                alternative_text=""
+                                source={ left_container_data.source_two }
+                            />
+                        </div>
+                        <div class="absolute top-8 right-0 h-[90%] aspect-[6/16]">
+                            <PictureContain
+                                alternative_text=""
+                                source={ left_container_data.source_three }
+                            />
+                        </div>
+                    </div>
+                    <Link href={ left_container_data.link_one }>
+                        <ParagraphLgBoldBlueHover>{ left_container_data.link_one_text }</ParagraphLgBoldBlueHover>
+                    </Link>
+                    <HeadingTwoThreeXlBlue>{ left_container_data.title }</HeadingTwoThreeXlBlue>
+                    <ParagraphBaseMedium>{ left_container_data.description_one }</ParagraphBaseMedium>
+                    <ParagraphBaseMedium>{ left_container_data.description_two }</ParagraphBaseMedium>
+                    <Link href={ left_container_data.link_two }>
+                        <ParagraphLgBoldBlueHover>{ left_container_data.link_two_text }</ParagraphLgBoldBlueHover>
+                    </Link>
+                </div>
+                <div class="flex flex-col gap-6">
+                    <div class="w-full aspect-[5/3]">
+                        <PictureContain
+                            alternative_text=""
+                            source={ right_container_data.source }
+                        />
+                    </div>
+                    <HeadingTwoThreeXlBlue>{ right_container_data.title }</HeadingTwoThreeXlBlue>
+                    <ParagraphBaseMedium>{ right_container_data.description_one }</ParagraphBaseMedium>
+                    <ParagraphBaseMedium>{ right_container_data.description_two }</ParagraphBaseMedium>
+                    <Link href={ right_container_data.link }>
+                        <ParagraphLgBoldBlueHover>{ right_container_data.link_text }</ParagraphLgBoldBlueHover>
+                    </Link>
+                    <div class="p-4 shadow-lg w-full">
+                        <div class="relative w-full aspect-[5/4] bg-[url('/images/stunning-card-bg.jpeg')] bg-cover bg-center bg-no-repeat">
+                            <div class="absolute top-0 left-0 bg-blue-500 px-4 py-2">
+                                <ParagraphTwoXlWhite>{ right_container_card_data.title }</ParagraphTwoXlWhite>
+                            </div>
+                            <div class="absolute w-full bottom-0 bg-slate-700 bg-opacity-90 flex flex-col gap-2 p-4">
+                                <HeadingThreeXlwhite>{ right_container_card_data.subtitle }</HeadingThreeXlwhite>
+                                <ParagraphMediumWhite>{ right_container_card_data.description }</ParagraphMediumWhite>
+                                <Link href={ right_container_card_data.link }>
+                                    <ParagraphSemiboldWhite>{ right_container_card_data.link_text }</ParagraphSemiboldWhite>
+                                </Link>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </Container>
+</section>

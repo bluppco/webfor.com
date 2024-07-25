@@ -1,20 +1,8 @@
 ---
 
-//IMPORT ASTRO LAYOUTS
-import Container from "@/layouts/container/index.astro"
-
 //IMPORT ASTRO COMPONENTS
-import TestimonialUserCard from "@/components/home/testimonial/testimonial-user-card/index.astro"
-
-//IMPORT ASTRO ATOMS
-import ButtonWhite from "@/atoms/atoms-diksha/buttons/white/index.astro"
-import HeadingFourThreeXlSemiboldPrimary from "@/atoms/atoms-diksha/headings/four/3xl/semibold/primary/index.astro"
-import HeadingFourThreeXlSemiboldUppercaseCenterWhite from "@/atoms/atoms-diksha/headings/four/3xl/semibold/uppercase/center/white/index.astro"
-import Link from "@/atoms/links/index.astro"
-import ParagraphBoldUppercaseWhite from "@/atoms/atoms-diksha/paragraphs/bold/uppercase/white/index.astro"
-import ParagraphLgSemiboldPrimary from "@/atoms/atoms-diksha/paragraphs/lg/semibold/primary/index.astro"
-import ParagraphXlItalicLeftSlate500 from "@/atoms/atoms-diksha/paragraphs/xl/italic/left/slate-500/index.astro"
-import Picture from "@/atoms/picture/internal/index.astro"
+import TestimonialCover from "@/components/home/testimonial/testimonial-cover/index.astro"
+import UserTestimonial from "@/components/home/testimonial/user-testimonial/index.astro"
 
 //GET ASTRO PROPS
 const { isRight } = Astro.props
@@ -25,44 +13,57 @@ const display_content = {
     button_text: "Get Started",
     text: "360.550.9578"
 }
-
-const testimonial_content = {
-    testimonial: "“…team go above and beyond for our account. We appreciate the support they give, as well as the knowledge they pass on to us and our business. They acknowledge points that truly affect our business. Thank you!”"
+const testimonial_content1 = {
+    title:"What Our Customers Say ... Says It All.",
+    subtitle:"We’ve proven our knowledge and service stands above the competition. See what real customers have to say about us.",
+    testimonial: "“Webfor did an amazing job building the website for our youth career center. Following our brand guidelines, they created an eye-catching and appealing site and offered suggestions to make the site user-friendly and compatible with mobile devices – which is what most of our audience will use to access the site. Stellar professionals, they know their stuff and we would use them again.”",
+    user_content: 
+    {
+        image:"https://via.placeholder.com/56",
+        name: "Julia Maglione",
+        company: "Workforce Southwest Washington",
+        designation: "New Logo and Website Design",
+    }
+}
+const testimonial_content2 = {
+    title:"Our Marketing Customers And Partners Tell It Like It Is.",
+    testimonial: "“…team go above and beyond for our account. We appreciate the support they give, as well as the knowledge they pass on to us and our business. They acknowledge points that truly affect our business. Thank you!”",
+    user_content: 
+    {
+        image:"https://via.placeholder.com/56",
+        name: "Beth Anderson",
+        company: "Simpson Plumbing",
+        designation: "Marketing and Website Design",
+    }
 }
 
----
+--- 
 
-<Container>
-    <div class={`flex flex-col lg:flex-row`}>
-        <div class="bg-color-primary bg-light-radial-gradient w-full lg:w-1/2 px-16 py-40 flex flex-col items-center justify-center gap-6">
-            <div class="w-14 aspect-square">
-                <Picture
-                    alternative_text="email"
-                    source="/images/icon-email.svg"
-                />
-            </div>
-            <HeadingFourThreeXlSemiboldUppercaseCenterWhite>{ display_content.title }</HeadingFourThreeXlSemiboldUppercaseCenterWhite>
-            <div class="flex flex-row justify-center items-center gap-6">
-                <Link
-                    aria_label="get started"
-                    source="/"
-                >
-                    <ButtonWhite>{ display_content.button_text }</ButtonWhite>
-                </Link>
-                <ParagraphBoldUppercaseWhite>{ display_content.text }</ParagraphBoldUppercaseWhite>
-            </div>
+{
+
+    isRight ?
+    (
+
+        <div class="flex flex-col lg:flex-row">
+            <UserTestimonial 
+                isRight={ isRight } 
+                testimonial_content={ testimonial_content1 }
+            />
+            <TestimonialCover display_content={ display_content } />
         </div>
-        <div class={`bg-color-tertiary w-full lg:w-1/2 px-12 py-40 flex flex-col justify-center ${isRight ? "items-start" : "items-center"} gap-6 ${isRight ? "text-left" : "text-center"}`}>
-            <!-- testimonial -->
-             <HeadingFourThreeXlSemiboldPrimary>Our Marketing Customers And Partners Tell It Like It Is.</HeadingFourThreeXlSemiboldPrimary>
-             <ParagraphXlItalicLeftSlate500>{ testimonial_content.testimonial }</ParagraphXlItalicLeftSlate500>
-             <TestimonialUserCard/>
-             <Link
-                aria_label="read more testimonials"
-                source="/"
-            >
-                <ParagraphLgSemiboldPrimary>Read more stories and checkout some case studies.</ParagraphLgSemiboldPrimary>
-            </Link>
+
+    ):
+    (
+
+        <div class="flex flex-col lg:flex-row">
+            <TestimonialCover display_content={ display_content } />
+            <UserTestimonial 
+                isRight={ isRight }
+                testimonial_content={ testimonial_content2 } 
+            />
         </div>
-    </div>
-</Container>
+
+    )
+
+}
+

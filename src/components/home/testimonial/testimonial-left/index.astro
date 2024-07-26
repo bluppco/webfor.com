@@ -1,0 +1,32 @@
+---
+
+//IMPORT ASTRO COMPONENTS
+import TestimonialCover from "@/components/home/testimonial/testimonial-cover/index.astro"
+import UserTestimonial from "@/components/home/testimonial/user-testimonial/index.astro"
+
+//GET ASTRO PROPS
+const { isRight } = Astro.props
+
+//CONSTANTS
+const testimonial_content = {
+    title:"What Our Customers Say ... Says It All.",
+    subtitle:"We’ve proven our knowledge and service stands above the competition. See what real customers have to say about us.",
+    testimonial: "“Webfor did an amazing job building the website for our youth career center. Following our brand guidelines, they created an eye-catching and appealing site and offered suggestions to make the site user-friendly and compatible with mobile devices – which is what most of our audience will use to access the site. Stellar professionals, they know their stuff and we would use them again.”",
+    user_content: 
+    {
+        image:"https://via.placeholder.com/56",
+        name: "Julia Maglione",
+        company: "Workforce Southwest Washington",
+        designation: "New Logo and Website Design",
+    }
+}
+
+---
+
+<div class="flex flex-col lg:flex-row">
+    <UserTestimonial 
+        isRight={ isRight } 
+        testimonial_content={ testimonial_content }
+    />
+    <TestimonialCover />
+</div>

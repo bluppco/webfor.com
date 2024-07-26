@@ -1,7 +1,7 @@
 ---
 
 //IMPORT ASTRO ATOMS
-import ParagraphBoldSlate700 from "@/atoms/atoms-diksha/paragraphs/bold/slate-700/index.astro"
+import ParagraphBoldSlate from "@/atoms/atoms-diksha/paragraphs/bold/slate/index.astro"
 import Picture from "@/atoms/picture/internal/index.astro"
 
 //GET ASTRO PROPS
@@ -16,11 +16,11 @@ const { user_content } = Astro.props
             source={ user_content.image }
         />
     </div>
-    <div class="flex flex-col items-start">
-        <ParagraphBoldSlate700>
+    <div class="flex flex-col">
+        <ParagraphBoldSlate>
             { user_content.name }
             <span class="font-normal"> / { user_content.company }</span>
-        </ParagraphBoldSlate700>
-        <ParagraphBoldSlate700>{ user_content.designation }</ParagraphBoldSlate700>
+        </ParagraphBoldSlate>
+        <ParagraphBoldSlate>{ user_content.designation }</ParagraphBoldSlate>
     </div>
 </div>

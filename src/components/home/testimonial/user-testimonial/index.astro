@@ -6,8 +6,8 @@ import TestimonialUserCard from "@/components/home/testimonial/user-testimonial/
 //IMPORT ASTRO ATOMS
 import HeadingFourThreeXlSemiboldPrimary from "@/atoms/atoms-diksha/headings/four/3xl/semibold/primary/index.astro"
 import ParagraphLgSemiboldPrimary from "@/atoms/atoms-diksha/paragraphs/lg/semibold/primary/index.astro"
-import ParagraphSlate700 from "@/atoms/atoms-diksha/paragraphs/slate700/index.astro"
-import ParagraphXlItalicLeftSlate500 from "@/atoms/atoms-diksha/paragraphs/xl/italic/left/slate-500/index.astro"
+import ParagraphSlate from "@/atoms/atoms-diksha/paragraphs/slate/index.astro"
+import ParagraphXlItalicLeftSlate from "@/atoms/atoms-diksha/paragraphs/xl/italic/left/slate/index.astro"
 import Link from "@/atoms/links/index.astro"
 
 //GET ASTRO PROPS
@@ -25,11 +25,11 @@ const {
         <HeadingFourThreeXlSemiboldPrimary>{ testimonial_content.title }</HeadingFourThreeXlSemiboldPrimary>
         {
             testimonial_content.subtitle ? (
-                <ParagraphSlate700>{ testimonial_content.subtitle }</ParagraphSlate700>
+                <ParagraphSlate>{ testimonial_content.subtitle }</ParagraphSlate>
             ) : ""
         }
      </div>
-     <ParagraphXlItalicLeftSlate500>{ testimonial_content.testimonial }</ParagraphXlItalicLeftSlate500>
+     <ParagraphXlItalicLeftSlate>{ testimonial_content.testimonial }</ParagraphXlItalicLeftSlate>
      <TestimonialUserCard user_content={ testimonial_content.user_content }/>
      <Link
         aria_label="read more testimonials"

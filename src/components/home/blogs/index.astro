@@ -1,14 +1,11 @@
 ---
 
-// IMPORT ASTRO LAYOUTS
-import Container from "@/layouts/container-custom/index.astro"
-
 // IMPORT ASTRO COMPONENTS
 import BlogCard from "@/components/home/blogs/card/index.astro"
 
 // IMPORT ASTRO ATOMS
 import ButtonTransparentBorderBlue from "@/atoms/atoms-shiva/buttons/transparent/border-blue/index.astro"
-import HeadingTwoThreeXlSemiboldBlue from "@/atoms/atoms-shiva/headings/two/three-xl/semibold/blue/center/index.astro"
+import HeadingTwoThreeXlSemiboldBlue from "@/atoms/atoms-shiva/headings/two/three-xl/semibold/center/blue/index.astro"
 import Link from "@/atoms/links/index.astro"
 import ParagraphBaseMediumCenter from "@/atoms/atoms-shiva/paragraphs/base/medium/center/index.astro"
 import ParagraphLgBoldBlueHover from "@/atoms/atoms-shiva/paragraphs/lg/bold/blue/hover/index.astro"
@@ -129,47 +126,45 @@ const car_data = [
 
 ---
 
-<section class="py-12">
-    <Container>
-        <div class="flex flex-col gap-8">
-            <div class="flex flex-col items-center justify-center gap-4 lg:px-80">
-                <div class="size-16">
-                    <PictureContain
-                        alternative_text=""
+<section class="py-12 px-4">
+    <div class="flex flex-col gap-8">
+        <div class="flex flex-col items-center justify-center gap-4 lg:px-80">
+            <div class="size-16">
+                <PictureContain
+                    alternative_text=""
+                    source={ data.source }
+                />
+            </div>
+            <HeadingTwoThreeXlSemiboldBlue>{ data.title }</HeadingTwoThreeXlSemiboldBlue>
+            <ParagraphBaseMediumCenter>{ data.subtitle }</ParagraphBaseMediumCenter>
+        </div>
+        <div class="grid grid-cols-1 gap-6 items-center justify-center md:grid-cols-2 lg:grid-cols-4">
+            {
+
+                car_data.map( ( data ) => (
+
+                    <BlogCard
+                        background={ data.background }
+                        date={ data.date }
+                        domains={ data.domains }
+                        link={ data.link }
+                        name={ data.name }
+                        position={ data.position }
                         source={ data.source }
+                        title={ data.title }
                     />
-                </div>
-                <HeadingTwoThreeXlSemiboldBlue>{ data.title }</HeadingTwoThreeXlSemiboldBlue>
-                <ParagraphBaseMediumCenter>{ data.subtitle }</ParagraphBaseMediumCenter>
-            </div>
-            <div class="grid grid-cols-1 gap-6 items-center justify-center md:grid-cols-2 lg:grid-cols-4">
-                {
 
-                    car_data.map( ( data ) => (
+                ))
 
-                        <BlogCard
-                            background={ data.background }
-                            date={ data.date }
-                            domains={ data.domains }
-                            link={ data.link }
-                            name={ data.name }
-                            position={ data.position }
-                            source={ data.source }
-                            title={ data.title }
-                        />
-
-                    ))
-
-                }
-            </div>
-            <div class="flex items-center justify-center flex-col gap-6">
-                <Link href={ data.link }>
-                    <ParagraphLgBoldBlueHover>{ data.link_text }</ParagraphLgBoldBlueHover>
-                </Link>
-                <Link href={ data.button_link }>
-                    <ButtonTransparentBorderBlue>{ data.button_text }</ButtonTransparentBorderBlue>
-                </Link>
-            </div>
-        </div> 
-    </Container>
+            }
+        </div>
+        <div class="flex items-center justify-center flex-col gap-6">
+            <Link href={ data.link }>
+                <ParagraphLgBoldBlueHover>{ data.link_text }</ParagraphLgBoldBlueHover>
+            </Link>
+            <Link href={ data.button_link }>
+                <ButtonTransparentBorderBlue>{ data.button_text }</ButtonTransparentBorderBlue>
+            </Link>
+        </div>
+    </div> 
 </section>

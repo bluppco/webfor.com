@@ -3,9 +3,9 @@
 // IMPORT ASTRO ATOMS
 import ButtonBlue from "@/atoms/atoms-shiva/buttons/blue/index.astro"
 import Link from "@/atoms/links/index.astro"
-import ParagraphLgBoldWhiteCenter from "@/atoms/atoms-shiva/paragraphs/lg/bold/white/center/index.astro"
-import ParagraphSmWhiteCenter from "@/atoms/atoms-shiva/paragraphs/sm/white/center/index.astro"
-import ParagraphSmWhiteSemiboldCenter from "@/atoms/atoms-shiva/paragraphs/sm/semibold/white/center/index.astro"
+import ParagraphLgBoldWhiteCenter from "@/atoms/atoms-shiva/paragraphs/lg/bold/center/white/index.astro"
+import ParagraphSmWhiteCenter from "@/atoms/atoms-shiva/paragraphs/sm/center/white/index.astro"
+import ParagraphSmWhiteSemiboldCenter from "@/atoms/atoms-shiva/paragraphs/sm/semibold/center/white/index.astro"
 import PictureContain from "@/atoms/picture/internal/contain/index.astro"
 
 // HARDCODED DATA
@@ -59,10 +59,7 @@ const {
         />
     </div>
     <div class="flex flex-col gap-1">
-        <ParagraphSmWhiteSemiboldCenter>
-            { data.written_by }
-            { name }
-        </ParagraphSmWhiteSemiboldCenter>
+        <ParagraphSmWhiteSemiboldCenter>{ data.written_by }{ name }</ParagraphSmWhiteSemiboldCenter>
         {
 
             position &&

@@ -2,7 +2,13 @@
 
 // IMPORT ASTRO ATOMS
 import Link from "@/atoms/links/index.astro"
-// import ListItemWhite from "@/atoms/atoms-nandini/list-items/white/index.astro"
+import PictureInternal from "@/atoms/picture/internal/index.astro"
+
+// IMPORT DATA FROM FRONT-MATTER
+import { frontmatter as arrowicon } from "@/content/header-icon/arrow.md"
+
+// HARDCODED DATA
+const arrow_link = arrowicon.link
 
 // GET ASTRO PROPS
 const { data } = Astro.props
@@ -16,12 +22,17 @@ const { data } = Astro.props
 
                 return (
                     
-                        <li class="text-white text-lg ">
+                        <li class="text-white text-lg hover:bg-blue-500">
                             <Link
                                 aria-label={ "explore " + item.data.title }
                                 href={ item.data.link }
                             >
-                                { item.data.title }
+                                { item.data.title } <span class="inline-block size-5 pt-2.5">
+                                    <PictureInternal
+                                        alternative_text = { arrow_link }
+                                        source = { arrow_link }
+                                    />
+                                </span>
                             </Link>
                         </li>
 

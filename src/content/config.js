@@ -27,7 +27,7 @@ const headerColumnCollection = defineCollection({
 		live: z.boolean(),
 		order: z.number(),
 		title: z.string(),
-    link: z.string().optional(),
+        link: z.string().optional(),
     
 	})
   
@@ -36,6 +36,6 @@ const headerColumnCollection = defineCollection({
 export const collections = {
 
     "footer": footerCollection,
-    "header-column": headerColumnCollection,
+    "header": headerColumnCollection,
 
 }

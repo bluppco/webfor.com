@@ -4,8 +4,8 @@
 import { getCollection } from 'astro:content'
 
 // IMPORT HEADER COLUMN COLLECTION
-let header_column = await getCollection('header-column')
-header_column = header_column.sort( ( a, b ) => a.data.order - b.data.order).filter( ( item ) => item.data.live )
+let header = await getCollection('header')
+header = header.sort( ( a, b ) => a.data.order - b.data.order).filter( ( item ) => item.data.live )
 
 
 // IMPORT ASTRO LAYOUTS
@@ -13,34 +13,57 @@ import Container from "@/layouts/container/index.astro"
 
 // IMPORT ASTRO COMPONENTS
 import HeaderColumn from "@/components/common/header/header-column/index.astro"
-// import FooterColumnImage from "@/components/common/footer/columns-images/index.astro"
-// import FooterColumnLeft from "@/components/common/footer/column-left/index.astro"
+
 
 // IMPORT ASTRO ATOMS
+import ButtonOrange from "@/atoms/atoms-nandini/buttons/orange/index.astro"
 import PictureInternal from "@/atoms/picture/internal/index.astro"
 // import HeadingThree5xlExtraboldWhite from "@/atoms/atoms-nandini/headings/three/5xl/extrabold/white/index.astro"
 // import ParagraphExtrasmallWhite from "@/atoms/atoms-nandini/paragraphs/xs/white/index.astro"
 
 // IMPORT DATA FROM FRONT-MATTER
 import { frontmatter as button } from "@/content/header-button/button.md"
-import { frontmatter as icon } from "@/content/header-icon/icon.md"
+import { frontmatter as menu } from "@/content/header-icon/menu.md"
+import { frontmatter as webfor } from "@/content/header-icon/webfor.md"
 
 // HARDCODED DATA
 const button_text = button.title
-const icon_link  = icon.link
+const menuicon_link  = menu.link
+const webforicon_link  = webfor.link
 
 ---
-<footer class="bg-black py-5 px-10">
+<header class="bg-transparent fixed w-full z-10 py-5 px-10">
     <Container>
-        <div class="flex justify-between">
+        <div class="flex justify-between items-center">
             <div>
                 <PictureInternal
                     alternative_text="",
-                    source={ icon_link }
+                    source={ webforicon_link }
                 />
             </div>
-            <HeaderColumn data={ header_column }/>
-            <button class="text-white text-lg tracking-widest font-bold bg-orange-400 hover:bg-blue-500 font-proxima_nova rounded-full px-7 uppercase">{ button_text }</button>
+            <div class="md:hidden size-5">
+                <PictureInternal
+                    alternative_text="",
+                    source={ menuicon_link }
+                />
+            </div>
+            <div class="hidden md:block">
+                <HeaderColumn data={ header }/>
+            </div>
+            <div class="hidden md:block">
+                <ButtonOrange>{ button_text }</ButtonOrange>
+            </div>
         </div>
     </Container>
-</footer>
+</header>
+
+<!-- <script>
+    document.addEventListener('scroll' , () => {
+        const header = document.querySelector('header');
+        if (window.scrollY > 96 ) {
+            header.classList.add('scrolled');
+        }else{
+            header.classList.remove('scrolled');
+        }
+    })
+</script> -->

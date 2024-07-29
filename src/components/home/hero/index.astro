@@ -1,0 +1,47 @@
+---
+
+// IMPORT ASTRO LAYPUTS
+import Container from "@/layouts/container/index.astro"
+
+// IMPORT ASTRO ATOMS
+import ButtonTransparent from "@/atoms/atoms-nandini/buttons/transparent/index.astro"
+import ButtonWhite from "@/atoms/atoms-nandini/buttons/white/index.astro"
+import HeadingOne6xlCenterWhite from "@/atoms/atoms-nandini/headings/one/6xl/center/white/index.astro"
+import HeadingTwo4xlCenterWhite from "@/atoms/atoms-nandini/headings/two/4xl/center/white/index.astro"
+import Link from "@/atoms/links/index.astro"
+
+//HARDCODED DATA
+const data= {
+
+    button_orange_link:"/get-started/",
+    button_transparent_link:"tel:3605509578",
+    button_text_orange:"get started",
+    button_text_transparent:"360.550.9578",
+    sub_title:"When you have marketing and growth objectives, you need experts with a reputation for delivering results.",
+    title:"You Deserve a Trusted Strategic SEO Partner",
+
+}
+
+
+---
+<section class="overflow-hidden">
+        <video loop autoplay muted plays-inline class="relative inset-0 min-h-screen md:size-full blur-sm">
+            <source src ="./public/hero-bg-video.mp4">
+        </video>
+        <div class="absolute bg-black inset-0 bg-opacity-65 min-h-screen object-cover"></div>
+    <Container>
+        <div class="absolute inset-0 top-44 space-y-8 mx-20">
+            <HeadingOne6xlCenterWhite>{ data.title }</HeadingOne6xlCenterWhite>
+            <HeadingTwo4xlCenterWhite>{ data.sub_title }</HeadingTwo4xlCenterWhite>
+            <div class="md:space-y-0 md:flex justify-center mg:gap-4">
+                <Link aria_label={ data.button_text_orange } href={ data.button_orange_link }>
+                    <ButtonWhite>{ data.button_text_orange }</ButtonWhite>
+                </Link>
+                <Link aria_label={ data.button_text_transparent } href={ data.button_transparent_link }>
+                    <ButtonTransparent>{ data.button_text_transparent }</ButtonTransparent>
+                </Link>
+            </div>
+        </div>
+    </Container>
+</section>
+<div class="absolute bg-blue-500 py-3 w-full"></div>

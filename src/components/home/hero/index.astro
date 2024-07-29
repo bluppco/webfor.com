@@ -24,24 +24,62 @@ const data= {
 
 
 ---
-<section class="overflow-hidden">
-        <video loop autoplay muted plays-inline class="relative inset-0 min-h-screen md:size-full blur-sm">
-            <source src ="./public/hero-bg-video.mp4">
+<section class="relative flex items-center justify-center h-screen overflow-hidden">
+        <video loop autoplay muted plays-inline class="absolute w-auto min-w-full min-h-full max-w-none">
+            <source src ="./public/hero-bg-video.mp4" type="video/mp4">
         </video>
-        <div class="absolute bg-black inset-0 bg-opacity-65 min-h-screen object-cover"></div>
+        <div class="absolute inset-0 bg-black bg-opacity-65"></div>
     <Container>
-        <div class="absolute inset-0 top-44 space-y-8 mx-20">
-            <HeadingOne6xlCenterWhite>{ data.title }</HeadingOne6xlCenterWhite>
+        <div class="relative inset-0 top-44 md:top-32 xl:60 space-y-5 md:space-y-8 mx-10 md:mx-20">
+            <HeadingOne6xlCenterWhite>You Deserve a Trusted Strategic 
+                <span class="font-bold" id="typewriter"></span> Partner</HeadingOne6xlCenterWhite>
             <HeadingTwo4xlCenterWhite>{ data.sub_title }</HeadingTwo4xlCenterWhite>
-            <div class="md:space-y-0 md:flex justify-center mg:gap-4">
-                <Link aria_label={ data.button_text_orange } href={ data.button_orange_link }>
-                    <ButtonWhite>{ data.button_text_orange }</ButtonWhite>
-                </Link>
-                <Link aria_label={ data.button_text_transparent } href={ data.button_transparent_link }>
-                    <ButtonTransparent>{ data.button_text_transparent }</ButtonTransparent>
-                </Link>
+            <div class="content-center space-y-4 md:space-y-0 md:flex justify-center md:gap-4">
+                <div class="flex justify-center">
+                    <Link aria_label={ data.button_text_orange } href={ data.button_orange_link }>
+                        <ButtonWhite>{ data.button_text_orange }</ButtonWhite>
+                    </Link>
+                </div>
+                <div class="flex justify-center">
+                    <Link aria_label={ data.button_text_transparent } href={ data.button_transparent_link }>
+                        <ButtonTransparent>{ data.button_text_transparent }</ButtonTransparent>
+                    </Link>
+                </div>
+                
             </div>
         </div>
     </Container>
 </section>
 <div class="absolute bg-blue-500 py-3 w-full"></div>
+
+<script>
+    const words = ["seo", "ppc", "website", "marketing", "content", "design"];
+    let i = 0;
+    let j = 0;
+    let currentWord = "";
+    let isDeleting = false;
+    
+    function typeaniamtion() {
+    currentWord = words[i];
+        if (isDeleting) {
+            document.getElementById("typewriter").textContent = currentWord.substring(0, j-1);
+            j--;
+            if (j == 0) {
+            isDeleting = false;
+            i++;
+            if (i == words.length) {
+                i = 0;
+            }
+            }
+        } else {
+            document.getElementById("typewriter").textContent = currentWord.substring(0, j+1);
+            j++;
+            if (j == currentWord.length) {
+            isDeleting = true;
+            }
+        }
+        setTimeout(typeaniamtion, 200);
+        }
+    
+    typeaniamtion();
+</script>

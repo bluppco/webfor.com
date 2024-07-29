@@ -3,10 +3,9 @@
 // IMPORT ASTRO COLLECTION
 import { getCollection } from 'astro:content'
 
-// IMPORT HEADER COLUMN COLLECTION
+// IMPORT HEADER COLLECTION
 let header = await getCollection('header')
 header = header.sort( ( a, b ) => a.data.order - b.data.order).filter( ( item ) => item.data.live )
-
 
 // IMPORT ASTRO LAYOUTS
 import Container from "@/layouts/container/index.astro"
@@ -14,25 +13,27 @@ import Container from "@/layouts/container/index.astro"
 // IMPORT ASTRO COMPONENTS
 import HeaderColumn from "@/components/common/header/header-column/index.astro"
 
-
 // IMPORT ASTRO ATOMS
 import ButtonOrange from "@/atoms/atoms-nandini/buttons/orange/index.astro"
+import Link from "@/atoms/links/index.astro"
+import ParagraphBoldWhite from "@/atoms/atoms-nandini/paragraphs/bold/white/index.astro"
 import PictureInternal from "@/atoms/picture/internal/index.astro"
-// import HeadingThree5xlExtraboldWhite from "@/atoms/atoms-nandini/headings/three/5xl/extrabold/white/index.astro"
-// import ParagraphExtrasmallWhite from "@/atoms/atoms-nandini/paragraphs/xs/white/index.astro"
 
 // IMPORT DATA FROM FRONT-MATTER
 import { frontmatter as button } from "@/content/header-button/button.md"
+import { frontmatter as contactnumber } from "@/content/header-button/contact-number.md"
 import { frontmatter as menu } from "@/content/header-icon/menu.md"
 import { frontmatter as webfor } from "@/content/header-icon/webfor.md"
 
 // HARDCODED DATA
 const button_text = button.title
+const contactnumber_link = contactnumber.link
+const contactnumber_text = contactnumber.title
 const menuicon_link  = menu.link
 const webforicon_link  = webfor.link
 
 ---
-<header class="bg-transparent fixed w-full z-10 py-5 px-10">
+<header class="bg-black fixed w-full z-10 py-5 px-10">
     <Container>
         <div class="flex justify-between items-center">
             <div>
@@ -50,7 +51,11 @@ const webforicon_link  = webfor.link
             <div class="hidden md:block">
                 <HeaderColumn data={ header }/>
             </div>
-            <div class="hidden md:block">
+            
+            <div class="hidden md:block lg:flex gap-2 items-center">
+                <Link aria_label={ contactnumber_text } href={ contactnumber_link }>
+                    <ParagraphBoldWhite>{ contactnumber_text }</ParagraphBoldWhite>
+                </Link>
                 <ButtonOrange>{ button_text }</ButtonOrange>
             </div>
         </div>

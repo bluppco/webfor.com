@@ -11,7 +11,7 @@ header = header.sort( ( a, b ) => a.data.order - b.data.order).filter( ( item ) 
 import Container from "@/layouts/container/index.astro"
 
 // IMPORT ASTRO COMPONENTS
-import HeaderColumn from "@/components/common/header/header-column/index.astro"
+import Header from "@/components/common/header/header/index.astro"
 
 // IMPORT ASTRO ATOMS
 import ButtonOrange from "@/atoms/atoms-nandini/buttons/orange/index.astro"
@@ -49,7 +49,7 @@ const webforicon_link  = webfor.link
                 />
             </div>
             <div class="hidden md:block">
-                <HeaderColumn data={ header }/>
+                <Header data={ header }/>
             </div>
             
             <div class="hidden md:block lg:flex gap-2 items-center">

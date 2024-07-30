@@ -1,0 +1,35 @@
+---
+// IMPORT ASTRO LAYOUTS
+import Container from "@/layouts/container/index.astro"
+
+// IMPORT ASTRO ATOMS
+import PictureInternal from "@/atoms/picture/internal/index.astro"
+
+// IMPORT DATA FROM FRONT-MATTER
+import { frontmatter as menu } from "@/content/header-icon/menu.md"
+import { frontmatter as webfor } from "@/content/header-icon/webfor.md"
+
+// HARDCODED DATA
+const menuicon_link  = menu.link
+const webforicon_link  = webfor.link
+
+---
+<header class="md:hidden bg-black fixed w-full z-10 py-5">
+    <Container>
+        <div class="flex justify-between items-center">
+            <div>
+                <PictureInternal
+                    alternative_text="",
+                    source={ webforicon_link }
+                />
+            </div>
+            <div class="size-5">
+                <PictureInternal
+                    alternative_text="",
+                    source={ menuicon_link }
+                />
+            </div>
+        </div>
+    </Container>
+</header>
+

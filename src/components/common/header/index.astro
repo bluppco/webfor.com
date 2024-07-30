@@ -1,5 +1,4 @@
 ---
-
 // IMPORT ASTRO COLLECTION
 import { getCollection } from 'astro:content'
 
@@ -11,7 +10,8 @@ header = header.sort( ( a, b ) => a.data.order - b.data.order).filter( ( item ) 
 import Container from "@/layouts/container/index.astro"
 
 // IMPORT ASTRO COMPONENTS
-import Header from "@/components/common/header/header/index.astro"
+import MobileHeader from "@/components/common/header/mobile-header/index.astro"
+import Navbar from "@/components/common/header/navbar/index.astro"
 
 // IMPORT ASTRO ATOMS
 import ButtonOrange from "@/atoms/atoms-nandini/buttons/orange/index.astro"
@@ -22,18 +22,16 @@ import PictureInternal from "@/atoms/picture/internal/index.astro"
 // IMPORT DATA FROM FRONT-MATTER
 import { frontmatter as button } from "@/content/header-button/button.md"
 import { frontmatter as contactnumber } from "@/content/header-button/contact-number.md"
-import { frontmatter as menu } from "@/content/header-icon/menu.md"
 import { frontmatter as webfor } from "@/content/header-icon/webfor.md"
 
 // HARDCODED DATA
 const button_text = button.title
 const contactnumber_link = contactnumber.link
 const contactnumber_text = contactnumber.title
-const menuicon_link  = menu.link
 const webforicon_link  = webfor.link
 
 ---
-<header class="bg-black fixed w-full z-10 py-5 px-10">
+<header class="hidden md:block bg-black fixed w-full z-10 py-5">
     <Container>
         <div class="flex justify-between items-center">
             <div>
@@ -42,17 +40,11 @@ const webforicon_link  = webfor.link
                     source={ webforicon_link }
                 />
             </div>
-            <div class="md:hidden size-5">
-                <PictureInternal
-                    alternative_text="",
-                    source={ menuicon_link }
-                />
-            </div>
-            <div class="hidden md:block">
-                <Header data={ header }/>
+            <div>
+                <Navbar data={ header }/>
             </div>
             
-            <div class="hidden md:block lg:flex gap-2 items-center">
+            <div class="lg:flex gap-2 items-center">
                 <Link aria_label={ contactnumber_text } href={ contactnumber_link }>
                     <ParagraphBoldWhite>{ contactnumber_text }</ParagraphBoldWhite>
                 </Link>
@@ -61,6 +53,8 @@ const webforicon_link  = webfor.link
         </div>
     </Container>
 </header>
+<MobileHeader/>
+
 
 <!-- <script>
     document.addEventListener('scroll' , () => {
@@ -72,3 +66,5 @@ const webforicon_link  = webfor.link
         }
     })
 </script> -->
+
+<!-- Create mobile-header component -->

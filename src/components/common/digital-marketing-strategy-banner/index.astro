@@ -1,37 +1,41 @@
-<!-- ---
+---
 
 // IMPORT ASTRO LAYOUTS
 import Container from "@/layouts/container/index.astro"
 
 // IMPORT ASTRO ATOMS
 import Link from "@/atoms/links/index.astro"
+import ParagraphLargeBlue from "@/atoms/atoms-nandini/paragraphs/lg/blue/index.astro"
+import ParagraphLargeSemiboldBlue from "@/atoms/atoms-nandini/paragraphs/lg/semibold/blue/index.astro"
 import PictureInternal from "@/atoms/picture/internal/index.astro"
 
+// HARDCODED DATA
+const data = {
+
+    alternative_text:"Image",
+    delete_icon_link:"/icons/delete.svg",
+    paragraph_link:"/get-started/",
+    sub_title:"Fill out the form.",
+    title:"Get 3 free hours of digital marketing strategy!",
+}
+
 ---
-
-
-<section class="bg-blue-200 opacity-70 py-2" ><!-- id="banner" -->
+<section class="bg-blue-200 opacity-70 py-2">
     <Container>
         <div class="flex justify-between">
-            <div class="flex gap-1 justify-center mx-auto">
-                <p class="font-sans text-blue-600 text-lg">Get 3 free hours of digital marketing strategy!</p>
-                <Link aria_label="" href="/get-started/"><p class="font-sans font-semibold text-blue-600 text-lg underline hover:no-underline"> Fill out the form.</p></Link>
+            <div class="sm:flex gap-1 justify-center mx-auto">
+                <ParagraphLargeBlue>{ data.title }</ParagraphLargeBlue>
+                <Link aria_label={ data.paragraph_link } href={ data.paragraph_link}>
+                    <ParagraphLargeSemiboldBlue>{ data.sub_title }</ParagraphLargeSemiboldBlue>
+                </Link>
             </div>
-            <div>
-                <button class="w-3 aspect-auto"><!-- onclick="vanish()" -->
-                    <PictureInternal
-                        alternative_text="Image"
-                        source="/delete-icon.svg"
-                    />
-                </button>
+            <div class="size-5 cursor-pointer">
+                <PictureInternal
+                    alternative_text={ data.alternative_text }
+                    source={ data.delete_icon_link }
+                />
             </div>
         </div>
     </Container>
-</section> -->
-<!-- 
-<script type="text/javascript">
-    function vanish(){
-        document.querySelector('#banner').classList.toggle('hidden');
-    }
-    vanish()
-</script> -->
+</section>
+

@@ -5,17 +5,11 @@ import Link from "@/atoms/links/index.astro"
 import ListitemLargeWhite from "@/atoms/atoms-nandini/list-items/lg/white/index.astro"
 import PictureInternal from "@/atoms/picture/internal/index.astro"
 
-// IMPORT DATA FROM FRONT-MATTER
-import { frontmatter as arrowicon } from "@/content/header-icon/arrow.md"
-
-// HARDCODED DATA
-const arrow_link = arrowicon.link
-
 // GET ASTRO PROPS
-const { data } = Astro.props
+const { data , arrow_link } = Astro.props
 
 ---
-<section>
+<nav>
     <ul class="flex gap-4">
         {
 
@@ -41,4 +35,4 @@ const { data } = Astro.props
             })
         }
     </ul>
-</section>
+</nav>

@@ -5,27 +5,29 @@ import Container from "@/layouts/container/index.astro"
 // IMPORT ASTRO ATOMS
 import PictureInternal from "@/atoms/picture/internal/index.astro"
 
-// IMPORT DATA FROM FRONT-MATTER
-import { frontmatter as menu } from "@/content/header-icon/menu.md"
-import { frontmatter as webfor } from "@/content/header-icon/webfor.md"
+// GET ASTRO PROPS
+const {
+    
+    webforicon_link,
+    menuicon_link,
 
-// HARDCODED DATA
-const menuicon_link  = menu.link
-const webforicon_link  = webfor.link
+} = Astro.props
+
+
 
 ---
 <header class="md:hidden bg-black fixed w-full z-10 py-5">
     <Container>
         <div class="flex justify-between items-center">
-            <div>
+            <div class="h-20 aspect-[3/1]">
                 <PictureInternal
-                    alternative_text="",
+                    alternative_text={ webforicon_link },
                     source={ webforicon_link }
                 />
             </div>
             <div class="size-5">
                 <PictureInternal
-                    alternative_text="",
+                    alternative_text={ menuicon_link },
                     source={ menuicon_link }
                 />
             </div>

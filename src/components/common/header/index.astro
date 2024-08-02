@@ -11,7 +11,7 @@ import Container from "@/layouts/container/index.astro"
 
 // IMPORT ASTRO COMPONENTS
 import MobileHeader from "@/components/common/header/mobile-header/index.astro"
-import Navbar from "@/components/common/header/navbar/index.astro"
+import NavigationBar from "@/components/common/header/navigation-bar/index.astro"
 
 // IMPORT ASTRO ATOMS
 import ButtonOrange from "@/atoms/atoms-nandini/buttons/orange/index.astro"
@@ -20,51 +20,49 @@ import ParagraphBoldWhite from "@/atoms/atoms-nandini/paragraphs/bold/white/inde
 import PictureInternal from "@/atoms/picture/internal/index.astro"
 
 // IMPORT DATA FROM FRONT-MATTER
+import { frontmatter as arrowicon } from "@/content/header-icon/arrow.md"
 import { frontmatter as button } from "@/content/header-button/button.md"
 import { frontmatter as contactnumber } from "@/content/header-button/contact-number.md"
+import { frontmatter as menu } from "@/content/header-icon/menu.md"
 import { frontmatter as webfor } from "@/content/header-icon/webfor.md"
 
 // HARDCODED DATA
+const arrow_link = arrowicon.link
 const button_text = button.title
 const contactnumber_link = contactnumber.link
 const contactnumber_text = contactnumber.title
+const menuicon_link  = menu.link
 const webforicon_link  = webfor.link
 
 ---
 <header class="hidden md:block bg-black fixed w-full z-10 py-5">
     <Container>
         <div class="flex justify-between items-center">
-            <div>
+            <div class="h-20 aspect-[3/1]">
                 <PictureInternal
                     alternative_text="",
                     source={ webforicon_link }
                 />
             </div>
             <div>
-                <Navbar data={ header }/>
+                <NavigationBar data={ header }
+                    arrow_link={ arrow_link }
+                />
             </div>
             
             <div class="lg:flex gap-2 items-center">
                 <Link aria_label={ contactnumber_text } href={ contactnumber_link }>
-                    <ParagraphBoldWhite>{ contactnumber_text }</ParagraphBoldWhite>
+                    <div class="hidden lg:block">
+                        <ParagraphBoldWhite>{ contactnumber_text }</ParagraphBoldWhite>
+                    </div>
                 </Link>
                 <ButtonOrange>{ button_text }</ButtonOrange>
             </div>
         </div>
     </Container>
 </header>
-<MobileHeader/>
+<MobileHeader
+    webforicon_link = { webforicon_link }
+    menuicon_link = { menuicon_link }
+/>
 
-
-<!-- <script>
-    document.addEventListener('scroll' , () => {
-        const header = document.querySelector('header');
-        if (window.scrollY > 96 ) {
-            header.classList.add('scrolled');
-        }else{
-            header.classList.remove('scrolled');
-        }
-    })
-</script> -->
-
-<!-- Create mobile-header component -->

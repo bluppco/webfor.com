@@ -2,7 +2,7 @@
 
 // IMPORT ASTRO ATOMS
 import Link from "@/atoms/links/index.astro"
-import ListitemLargeWhite from "@/atoms/atoms-nandini/list-items/lg/white/index.astro"
+import ListitemLargeUppercaseWhite from "@/atoms/atoms-nandini/list-items/lg/uppercase/white/index.astro"
 import PictureInternal from "@/atoms/picture/internal/index.astro"
 
 // GET ASTRO PROPS
@@ -17,7 +17,7 @@ const { data , arrow_link } = Astro.props
 
                 return (
                     
-                        <ListitemLargeWhite>
+                        <ListitemLargeUppercaseWhite>
                             <Link
                                 aria-label={ "explore " + item.data.title }
                                 href={ item.data.link }
@@ -29,7 +29,7 @@ const { data , arrow_link } = Astro.props
                                     />
                                 </span>
                             </Link>
-                        </ListitemLargeWhite>
+                        </ListitemLargeUppercaseWhite>
 
                 )
             })

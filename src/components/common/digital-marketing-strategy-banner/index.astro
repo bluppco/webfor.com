@@ -20,7 +20,7 @@ const data = {
 }
 
 ---
-<section class="bg-blue-200 opacity-70 py-2">
+<section class="bg-blue-200 opacity-70 py-2"><!-- section => id="banner" -->
     <Container>
         <div class="flex justify-between">
             <div class="sm:flex gap-1 justify-center mx-auto">
@@ -29,7 +29,7 @@ const data = {
                     <ParagraphLargeSemiboldBlue>{ data.sub_title }</ParagraphLargeSemiboldBlue>
                 </Link>
             </div>
-            <div class="size-5 cursor-pointer">
+            <div class="size-5 cursor-pointer"><!-- div => onclick="vanish()" -->
                 <PictureInternal
                     alternative_text={ data.alternative_text }
                     source={ data.delete_icon_link }
@@ -39,3 +39,9 @@ const data = {
     </Container>
 </section>
 
+<script type="text/javascript">
+    function vanish(){
+        document.querySelector('#banner').classList.toggle('hidden');
+    }
+    vanish()
+</script>

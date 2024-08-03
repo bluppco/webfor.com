@@ -1,9 +1,14 @@
-<!-- ---
+---
 
 // IMPORT ASTRO LAYOUTS
 import Container from "@/layouts/container/index.astro"
 
 // IMPORT ASTRO ATOMS
+import ButtonWhiteTextBlue from "@/atoms/atoms-nandini/buttons/white/text-blue/index.astro"
+import HeadingThree2xlCenterWhite from "@/atoms/atoms-nandini/headings/three/2xl/center/white/index.astro"
+import HeadingThree2xlUppercaseCenterWhite from "@/atoms/atoms-nandini/headings/three/2xl/uppercase/center/white/index.astro"
+import ParagraphCenterWhite from "@/atoms/atoms-nandini/paragraphs/center/white/index.astro"
+import ParagraphCenterBoldWhite from "@/atoms/atoms-nandini/paragraphs/center/bold/white/index.astro"
 import PictureInternal from "@/atoms/picture/internal/index.astro"
 import Link from "@/atoms/links/index.astro"
 
@@ -11,8 +16,12 @@ import Link from "@/atoms/links/index.astro"
 const data = {
 
     button:"get started",
-    contact:"360.550.9578",
-    desc:"Get in touch to receive a free discovery session, analysis and recommendation. We take a comprehensive approach to your specific needs. We don’t just say we can get results; we get them.",
+    button_link:"/get-started/",
+    contact_info:"360.550.9578",
+    contact_info_link:"tel:3605509578",
+    description:"Get in touch to receive a free discovery session, analysis and recommendation. We take a comprehensive approach to your specific needs. We don’t just say we can get results; we get them.",
+    icon_link:"/icons/webfor-email.svg",
+    sub_title:"We help people. That means you, too. Get in touch for a free consultation and discovery session.",
     title:"Your New Path To Growth And Customer Acquisition Starts Here.",
     
 }
@@ -21,26 +30,36 @@ const data = {
 
 
 
-<section class="relative">
-
-    <div>
-        <PictureInternal
-            alternative_text="bg-image"
-            source="/get-in-touch-bg-image.jpg"
-        />
-    </div>
-
+<section class="bg-blue-500 py-20">
     <Container>
-        <div class="absolute top-0 my-10 space-y-10">
-            <h3 class="font-montserrat text-white text-2xl text-center">{ data.title }</h3>
-            <p class="text-white text-center font-sans">{ data.desc }</p>
-            <div class="flex justify-center items-center gap-5">
-                <button class="bg-white text-black rounded-full uppercase font-sans tracking-wide font-bold px-4 py-2">{ data.button }</button>
-                <Link
-                    aria_label=""
-                    href="tel:3605509578"
-                ><p class="text-white font-sans hover:underline">{ data.contact }</p></Link>
+        <div class="space-y-10">
+            <div class="mx-32 md:mx-60 xl:mx-80 2xl:mx-96 hidden lg:block">
+                <HeadingThree2xlCenterWhite>{ data.title }</HeadingThree2xlCenterWhite>
+            </div>
+            <div class="mx-32 md:mx-60 xl:mx-80 2xl:mx-96 hidden lg:block">
+                <ParagraphCenterWhite>{ data.description }</ParagraphCenterWhite>
+            </div>
+            <div class="lg:hidden size-14 mx-44 sm:mx-64 md:mx-80">
+                <PictureInternal 
+                    alternative_text=""
+                    source={ data.icon_link }
+                />
+            </div>
+            <div class="mx-20 lg:hidden">
+                <HeadingThree2xlUppercaseCenterWhite>{ data.sub_title }</HeadingThree2xlUppercaseCenterWhite>
+            </div>
+            <div class="mx-24 sm:mx-40 space-y-5 md:space-y-0 md:flex justify-center items-center">
+                <div class="mx-12">
+                    <Link aria_label={ data.button_link } href={ data.button_link }>
+                        <ButtonWhiteTextBlue>{ data.button }</ButtonWhiteTextBlue>
+                    </Link>
+                </div>
+                <div>
+                    <Link aria_label={ data.contact_info_link } href={ data.contact_info_link }>
+                        <ParagraphCenterBoldWhite>{ data.contact_info }</ParagraphCenterBoldWhite>
+                    </Link> 
+                </div>
             </div>
         </div>
     </Container>
-</section> -->
+</section>

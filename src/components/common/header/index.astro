@@ -6,6 +6,22 @@ import { getCollection } from 'astro:content'
 let header = await getCollection('header')
 header = header.sort( ( a, b ) => a.data.order - b.data.order).filter( ( item ) => item.data.live )
 
+// IMPORT HEADER-HOVER-ABOUT COLLECTION
+let headerhoverabout = await getCollection('header-hover-about')
+headerhoverabout = headerhoverabout.sort( ( a, b ) => a.data.order - b.data.order).filter( ( item ) => item.data.live )
+
+// IMPORT HEADER-HOVER-RESOURCES COLLECTION
+let headerhoverresources = await getCollection('header-hover-resources')
+headerhoverresources = headerhoverresources.sort( ( a, b ) => a.data.order - b.data.order).filter( ( item ) => item.data.live )
+
+// IMPORT HEADER-HOVER-SERVICES-COLUMN-1 COLLECTION
+let headerhoverservicescolumn1 = await getCollection('header-hover-services-column-1')
+headerhoverservicescolumn1 = headerhoverservicescolumn1.sort( ( a, b ) => a.data.order - b.data.order).filter( ( item ) => item.data.live )
+
+// IMPORT HEADER-HOVER-SERVICES-COLUMN-2 COLLECTION
+let headerhoverservicescolumn2 = await getCollection('header-hover-services-column-2')
+headerhoverservicescolumn2 = headerhoverservicescolumn2.sort( ( a, b ) => a.data.order - b.data.order).filter( ( item ) => item.data.live )
+
 // IMPORT ASTRO LAYOUTS
 import Container from "@/layouts/container/index.astro"
 
@@ -35,10 +51,10 @@ const menuicon_link  = menu.link
 const webforicon_link  = webfor.link
 
 ---
-<header class="hidden md:block bg-black fixed w-full z-10 py-5">
+<header class="hidden md:block bg-black fixed w-full z-20 py-4">
     <Container>
         <div class="flex justify-between items-center">
-            <div class="h-20 aspect-[3/1]">
+            <div class="h-16 aspect-[3/1]">
                 <PictureInternal
                     alternative_text="",
                     source={ webforicon_link }
@@ -46,6 +62,10 @@ const webforicon_link  = webfor.link
             </div>
             <div>
                 <NavigationBar data={ header }
+                    datahoverabout = { headerhoverabout }
+                    datahoverresources={ headerhoverresources }
+                    datahoverservicescolumn1 = { headerhoverservicescolumn1 }
+                    datahoverservicescolumn2 = { headerhoverservicescolumn2 }
                     arrow_link={ arrow_link }
                 />
             </div>
@@ -65,14 +85,3 @@ const webforicon_link  = webfor.link
     webforicon_link = { webforicon_link }
     menuicon_link = { menuicon_link }
 />
-
-<!-- <script>
-    document.addEventListener('scroll' , () => {
-        const header = document.querySelector('header');
-        if (window.scrollY > 96 ) {
-            header.classList.add('scrolled');
-        }else{
-            header.classList.remove('scrolled');
-        }
-    })
-</script> -->

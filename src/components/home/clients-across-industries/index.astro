@@ -1,0 +1,47 @@
+---
+
+// IMPORT ASTRO LAYOUTS
+import Container from "@/layouts/container/index.astro"
+
+// IMPORT ASTRO ATOMS
+import HeadingThree2xlCapitalizeBlue from "@/atoms/atoms-nandini/headings/three/2xl/capitalize/blue/index.astro"
+import Link from "@/atoms/links/index.astro"
+import ParagraphLarge from "@/atoms/atoms-nandini/paragraphs/lg/index.astro"
+import ParagraphLargeBoldBlue from "@/atoms/atoms-nandini/paragraphs/lg/bold/blue/index.astro"
+import PictureInternal from "@/atoms/picture/internal/index.astro"
+
+// HARDCODED DATA
+const data = {
+
+    description:"While we’ve worked with global Fortune 100 companies to expand their reach internationally, we love nothing more than to bring that enterprise-level expertise to small- and medium-sized businesses.",
+    link:"/images/client.jpg",
+    sub_title:"+ Read More",
+    title:"We serve clients across a range of industries throughout the country.",
+
+}
+
+---
+<section>
+    <Container>
+        <div class="lg:grid lg:grid-cols-2 gap-10">
+            <div>
+                <div class="bg-gray-100 space-y-6 px-10 py-20">
+                    <HeadingThree2xlCapitalizeBlue>{ data.title }</HeadingThree2xlCapitalizeBlue>
+                    <ParagraphLarge>{ data.description }</ParagraphLarge>
+                    <div>
+                        <Link aria_label="" href="javascript">
+                            <ParagraphLargeBoldBlue>{ data.sub_title }</ParagraphLargeBoldBlue>
+                        </Link>
+                    </div>    
+                </div>
+                <div class="bg-blue-500 h-2"></div>
+            </div>
+            <div class="h-full aspect-[3/2] hidden lg:block">
+                <PictureInternal 
+                    alternative_text="Image"
+                    source={ data.link }
+                />
+            </div>
+        </div>
+    </Container>
+</section>

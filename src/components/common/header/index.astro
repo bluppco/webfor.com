@@ -1,46 +1,98 @@
 ---
-
 // IMPORT ASTRO COLLECTION
 import { getCollection } from 'astro:content'
 
-// IMPORT HEADER COLUMN COLLECTION
-let header_column = await getCollection('header-column')
-header_column = header_column.sort( ( a, b ) => a.data.order - b.data.order).filter( ( item ) => item.data.live )
+// IMPORT HEADER COLLECTION
+let header = await getCollection('header')
+header = header.sort( ( a, b ) => a.data.order - b.data.order).filter( ( item ) => item.data.live )
 
+// IMPORT HEADER-HOVER-ABOUT COLLECTION
+let headerhoverabout = await getCollection('header-hover-about')
+headerhoverabout = headerhoverabout.sort( ( a, b ) => a.data.order - b.data.order).filter( ( item ) => item.data.live )
+
+// IMPORT HEADER-HOVER-RESOURCES COLLECTION
+let headerhoverresources = await getCollection('header-hover-resources')
+headerhoverresources = headerhoverresources.sort( ( a, b ) => a.data.order - b.data.order).filter( ( item ) => item.data.live )
+
+// IMPORT HEADER-HOVER-SERVICES-COLUMN-1 COLLECTION
+let headerhoverservicescolumn1 = await getCollection('header-hover-services-column-1')
+headerhoverservicescolumn1 = headerhoverservicescolumn1.sort( ( a, b ) => a.data.order - b.data.order).filter( ( item ) => item.data.live )
+
+// IMPORT HEADER-HOVER-SERVICES-COLUMN-2 COLLECTION
+let headerhoverservicescolumn2 = await getCollection('header-hover-services-column-2')
+headerhoverservicescolumn2 = headerhoverservicescolumn2.sort( ( a, b ) => a.data.order - b.data.order).filter( ( item ) => item.data.live )
 
 // IMPORT ASTRO LAYOUTS
 import Container from "@/layouts/container/index.astro"
 
 // IMPORT ASTRO COMPONENTS
-import HeaderColumn from "@/components/common/header/header-column/index.astro"
-// import FooterColumnImage from "@/components/common/footer/columns-images/index.astro"
-// import FooterColumnLeft from "@/components/common/footer/column-left/index.astro"
+import MobileHeader from "@/components/common/header/mobile-header/index.astro"
+import NavigationBar from "@/components/common/header/navigation-bar/index.astro"
 
 // IMPORT ASTRO ATOMS
+import ButtonOrange from "@/atoms/atoms-nandini/buttons/orange/index.astro"
+import Link from "@/atoms/links/index.astro"
+import ParagraphBoldWhite from "@/atoms/atoms-nandini/paragraphs/bold/white/index.astro"
 import PictureInternal from "@/atoms/picture/internal/index.astro"
-// import HeadingThree5xlExtraboldWhite from "@/atoms/atoms-nandini/headings/three/5xl/extrabold/white/index.astro"
-// import ParagraphExtrasmallWhite from "@/atoms/atoms-nandini/paragraphs/xs/white/index.astro"
 
 // IMPORT DATA FROM FRONT-MATTER
+import { frontmatter as arrowicon } from "@/content/header-icon/arrow.md"
 import { frontmatter as button } from "@/content/header-button/button.md"
-import { frontmatter as icon } from "@/content/header-icon/icon.md"
+import { frontmatter as contactnumber } from "@/content/header-button/contact-number.md"
+import { frontmatter as menu } from "@/content/header-icon/menu.md"
+import { frontmatter as webfor } from "@/content/header-icon/webfor.md"
 
 // HARDCODED DATA
+const arrow_link = arrowicon.link
 const button_text = button.title
-const icon_link  = icon.link
+const contactnumber_link = contactnumber.link
+const contactnumber_text = contactnumber.title
+const menuicon_link  = menu.link
+const webforicon_link  = webfor.link
 
 ---
-<footer class="bg-black py-5 px-10">
+<header class="hidden md:block bg-black fixed w-full z-20 py-4">
     <Container>
-        <div class="flex justify-between">
-            <div>
+        <div class="flex justify-between items-center">
+            <div class="h-16 aspect-[3/1]">
                 <PictureInternal
                     alternative_text="",
-                    source={ icon_link }
+                    source={ webforicon_link }
                 />
             </div>
-            <HeaderColumn data={ header_column }/>
-            <button class="text-white text-lg tracking-widest font-bold bg-orange-400 hover:bg-blue-500 font-proxima_nova rounded-full px-7 uppercase">{ button_text }</button>
+            <div>
+                <NavigationBar data={ header }
+                    datahoverabout = { headerhoverabout }
+                    datahoverresources={ headerhoverresources }
+                    datahoverservicescolumn1 = { headerhoverservicescolumn1 }
+                    datahoverservicescolumn2 = { headerhoverservicescolumn2 }
+                    arrow_link={ arrow_link }
+                />
+            </div>
+            
+            <div class="lg:flex gap-2 items-center">
+                <Link aria_label={ contactnumber_text } href={ contactnumber_link }>
+                    <div class="hidden lg:block">
+                        <ParagraphBoldWhite>{ contactnumber_text }</ParagraphBoldWhite>
+                    </div>
+                </Link>
+                <ButtonOrange>{ button_text }</ButtonOrange>
+            </div>
         </div>
     </Container>
-</footer>
+</header>
+<MobileHeader
+    webforicon_link = { webforicon_link }
+    menuicon_link = { menuicon_link }
+/>
+
+<!-- <script>
+    document.addEventListener('scroll' , () => {
+        const header = document.querySelector('header');
+        if (window.scrollY > 150 ) {
+            header.classList.add('scrolled');
+        }else{
+            header.classList.remove('scrolled');
+        }
+    })
+</script> -->

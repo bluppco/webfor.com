@@ -43,6 +43,7 @@ module.exports = {
           			to: { height: "0" },
 
 				},
+				
       		},
       		animation: {
 

@@ -1,0 +1,238 @@
+---
+
+// IMPORT ASTRO ATOMS
+import Link from "@/atoms/links/index.astro"
+import ListItemBoldUppercaseBlue from "@/atoms/atoms-nandini/list-items/bold/uppercase/blue/index.astro"
+import ListitemLargeUppercaseWhite from "@/atoms/atoms-nandini/list-items/lg/uppercase/white/index.astro"
+import ParagraphSmall from "@/atoms/atoms-nandini/paragraphs/sm/index.astro"
+import PictureInternal from "@/atoms/picture/internal/index.astro"
+
+// GET ASTRO PROPS
+const { 
+
+    data, 
+    datahoverabout, 
+    datahoverresources, 
+    datahoverservicescolumn1, 
+    datahoverservicescolumn2,
+    arrow_link,
+    
+} = Astro.props
+
+---
+<nav>
+    <ul class="flex gap-4">
+        {
+
+            data.map((item, index) =>{
+
+                if( index == 0 ){
+
+                    return (
+
+                        <div class="group">
+                            <ListitemLargeUppercaseWhite>
+                                <div class="mt-6 mb-6">
+                                    <Link
+                                        aria-label={ "explore " + item.data.title }
+                                        href={ item.data.link }
+                                    >
+                                        { item.data.title } <span class="inline-block size-5 pt-2.5">
+                                            <PictureInternal
+                                                alternative_text = { arrow_link }
+                                                source = { arrow_link }
+                                            />
+                                        </span>
+                                    </Link>
+                                </div> 
+                            </ListitemLargeUppercaseWhite>
+                            <div class="hidden group-hover:block">
+                                <div class="grid grid-cols-2 fixed">
+                                    <div>
+                                        <ul class="bg-white space-y-7 px-10 py-4">
+                                            {
+                                    
+                                                datahoverservicescolumn1.map( ( item ) => {
+                                    
+                                                        return (
+
+                                                                <div>
+                                                                    <ListItemBoldUppercaseBlue>
+                                                                        <Link
+                                                                            aria-label={ "explore " + item.data.title }
+                                                                            href={ item.data.link }
+                                                                        >
+                                                                            { item.data.title }
+                                                                        </Link>
+                                                                    </ListItemBoldUppercaseBlue>
+                                                                    <ParagraphSmall>{ item.data.description }</ParagraphSmall>
+                                                                </div>
+                                                
+                                                        )
+                                    
+                                                })
+                                            }
+                                        </ul>
+                                    </div>
+                                    <div>
+                                        <ul class="bg-white space-y-7 px-10 py-4">
+                                            {
+                                    
+                                                datahoverservicescolumn2.map( ( item ) => {
+                                    
+                                                        return (
+
+                                                                <div>
+                                                                    <ListItemBoldUppercaseBlue>
+                                                                        <Link
+                                                                            aria-label={ "explore " + item.data.title }
+                                                                            href={ item.data.link }
+                                                                        >
+                                                                            { item.data.title }
+                                                                        </Link>
+                                                                    </ListItemBoldUppercaseBlue>
+                                                                    <ParagraphSmall>{ item.data.description }</ParagraphSmall>
+                                                                </div>
+
+                                                
+                                                        )
+                                    
+                                                })
+                                            }
+                                        </ul>
+                                    </div>
+                                    <div class="bg-blue-500 h-2"></div>
+                                    <div class="bg-blue-500 h-2"></div>
+                                </div>
+                            </div>
+                        </div>
+
+                    )
+
+                    }else if( index == 2 ) {
+
+                        return (
+
+                            <div class="group">
+                                <ListitemLargeUppercaseWhite>
+                                    <div class="mt-6 mb-6">
+                                        <Link
+                                            aria-label={ "explore " + item.data.title }
+                                            href={ item.data.link }
+                                        >
+                                            { item.data.title } <span class="inline-block size-5 pt-2.5">
+                                                <PictureInternal
+                                                    alternative_text = { arrow_link }
+                                                    source = { arrow_link }
+                                                />
+                                            </span>
+                                        </Link>
+                                    </div>
+                                </ListitemLargeUppercaseWhite>
+
+                                <div class="hidden group-hover:block fixed">
+                                    <ul class="bg-white space-y-7 px-10 py-4">
+                                        {
+                                
+                                            datahoverabout.map( ( item ) => {
+                                
+                                                    return (
+                                
+                                                            <ListItemBoldUppercaseBlue>
+                                                                <Link
+                                                                    aria-label={ "explore " + item.data.title }
+                                                                    href={ item.data.link }
+                                                                >
+                                                                    { item.data.title }
+                                                                </Link>
+                                                            </ListItemBoldUppercaseBlue>
+                                            
+                                                    )
+                                
+                                            })
+                                        }
+                                    </ul>
+                                    <div class="bg-blue-500 h-2"></div>
+                                </div>
+                            </div>
+
+                    )
+
+                    }else if( index == 3 ){
+
+                        return (
+
+                        <div class="group">
+                            <ListitemLargeUppercaseWhite>
+                                <div class="mt-6 mb-6">
+                                    <Link
+                                        aria-label={ "explore " + item.data.title }
+                                        href={ item.data.link }
+                                    >
+                                        { item.data.title } <span class="inline-block size-5 pt-2.5">
+                                            <PictureInternal
+                                                alternative_text = { arrow_link }
+                                                source = { arrow_link }
+                                            />
+                                        </span>
+                                    </Link>
+                                </div>
+                            </ListitemLargeUppercaseWhite>
+                            <div class="hidden group-hover:block fixed">
+                                <ul class="bg-white space-y-7 px-10 py-4">
+                                    {
+                            
+                                        datahoverresources.map( ( item ) => {
+                            
+                                                return (
+                            
+                                                        <ListItemBoldUppercaseBlue>
+                                                            <Link
+                                                                aria-label={ "explore " + item.data.title }
+                                                                href={ item.data.link }
+                                                            >
+                                                                { item.data.title }
+                                                            </Link>
+                                                        </ListItemBoldUppercaseBlue>
+                                        
+                                                )
+                            
+                                        })
+                                    }
+                                </ul>
+                                <div class="bg-blue-500 h-2"></div>
+                            </div>
+                        </div>
+                        
+                    )
+
+                    }
+                    
+                    else {
+
+                        return ( 
+
+                            <div class="group">
+                                <ListitemLargeUppercaseWhite>
+                                    <div class="mt-6 mb-6">
+                                        <Link
+                                            aria-label={ "explore " + item.data.title }
+                                            href={ item.data.link }
+                                        >
+                                            { item.data.title }
+                                        </Link>
+                                    </div>
+                                </ListitemLargeUppercaseWhite>
+                            </div>
+
+                        )
+
+                    }
+
+            }
+
+        )
+
+        }
+    </ul>
+</nav>

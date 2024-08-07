@@ -1,0 +1,18 @@
+---
+
+// IMPORT JSX COMPONENTS
+import LogoCarousel from "@/components/home/insights/jsx/index.jsx"
+
+// IMPORT ASTRO ATOMS
+import HeadingFiveTwoXlUppercaseCenterPrimary from "@/atoms/atoms-diksha/headings/five/2xl/center/uppercase/primary/index.astro"
+import ParagraphBoldPrimary from "@/atoms/atoms-diksha/paragraphs/bold/primary/index.astro"
+
+---
+
+<div class="flex flex-col gap-6 items-center justify-center py-40">
+    <HeadingFiveTwoXlUppercaseCenterPrimary>WE SHARE INCREDIBLE INSIGHTS<br/>AND BUILD AMAZING<br/> BUSINESSES.</HeadingFiveTwoXlUppercaseCenterPrimary>
+        <div class="relative overflow-hidden w-full">
+            <LogoCarousel client:load />
+        </div>
+    <ParagraphBoldPrimary> Browse our content marketing services.</ParagraphBoldPrimary>
+</div>

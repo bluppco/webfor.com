@@ -1,0 +1,26 @@
+---
+
+//IMPORT ASTRO ATOMS
+import ParagraphBoldSlate from "@/atoms/atoms-diksha/paragraphs/bold/slate/index.astro"
+import Picture from "@/atoms/picture/internal/index.astro"
+
+//GET ASTRO PROPS
+const { user_content } = Astro.props
+
+---
+
+<div class="flex gap-4 items-center">
+    <div class="w-14 aspect-square border-2 border-white">
+        <Picture
+            alternative_text="user"
+            source={ user_content.image }
+        />
+    </div>
+    <div class="flex flex-col">
+        <ParagraphBoldSlate>
+            { user_content.name }
+            <span class="font-normal"> / { user_content.company }</span>
+        </ParagraphBoldSlate>
+        <ParagraphBoldSlate>{ user_content.designation }</ParagraphBoldSlate>
+    </div>
+</div>

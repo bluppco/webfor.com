@@ -1,7 +1,7 @@
 ---
 
 // IMPORT ASTRO LAYOUTS
-import Container from "@/layouts/container-custom/index.astro"
+import ContainerSmall from "@/layouts/container-small/index.astro"
 
 // IMPORT ASTRO COMPONENTS
 import Card from "@/components/home/grow-your-business/blue-green-card/index.astro"
@@ -19,11 +19,11 @@ import Picture from "@/atoms/picture/internal/index.astro"
 
 //CONSTANTS
 const card_data = [
-    {   
+    {
         info: "Increase in keyword ranking YOY across all clients.",
         figure: "64.9%",
     },
-    {   
+    {
         info: "Increase to conversion rates through A/B testing.",
         figure: "20-30%",
     },
@@ -37,7 +37,7 @@ const content = {
 
 ---
 
-<Container>
+<ContainerSmall>
     <div class="flex flex-col lg:flex-row gap-16 justify-between">
         <div class="flex flex-col gap-10 w-full lg:w-1/2">
             <HeadingFourThreeXlLightSlate>We Provide A Full Suite Of Marketing Services To Meet Your Needs.</HeadingFourThreeXlLightSlate>
@@ -76,4 +76,4 @@ const content = {
             </div>
         </div>
     </div>
-</Container>
+</ContainerSmall>

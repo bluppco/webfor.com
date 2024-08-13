@@ -1,0 +1,87 @@
+---
+
+// IMPORT ASTRO LAYPUTS
+import Container from "@/layouts/container/index.astro"
+
+// IMPORT ASTRO ATOMS
+import ButtonTransparent from "@/atoms/atoms-nandini/buttons/transparent/index.astro"
+import ButtonWhite from "@/atoms/atoms-nandini/buttons/white/index.astro"
+import HeadingOne6xlCenterWhite from "@/atoms/atoms-nandini/headings/one/6xl/center/white/index.astro"
+import HeadingTwo4xlCenterWhite from "@/atoms/atoms-nandini/headings/two/4xl/center/white/index.astro"
+import Link from "@/atoms/links/index.astro"
+import VideoBackground from "@/atoms/atoms-nandini/video/index.astro"
+
+//HARDCODED DATA
+const data= {
+
+    button_orange_link:"/get-started/",
+    button_transparent_link:"tel:3605509578",
+    button_text_orange:"get started",
+    button_text_transparent:"360.550.9578",
+    sub_title:"When you have marketing and growth objectives, you need experts with a reputation for delivering results.",
+    title:"You Deserve a Trusted Strategic SEO Partner",
+
+}
+
+
+---
+<section class="relative flex items-center justify-center h-screen overflow-hidden">
+        <VideoBackground
+            src="/hero-bg-video.mp4"
+        />
+        <div class="absolute inset-0 bg-black bg-opacity-65"></div>
+    <Container>
+        <div class="relative inset-0 top-44 md:top-32 xl:60 space-y-5 md:space-y-8 mx-10 md:mx-20">
+            <HeadingOne6xlCenterWhite>You Deserve a Trusted Strategic 
+                <span class="font-bold" id="typewriter"></span> Partner</HeadingOne6xlCenterWhite>
+            <div class="capitalize">
+                <HeadingTwo4xlCenterWhite>{ data.sub_title }</HeadingTwo4xlCenterWhite>
+            </div>
+            <div class="content-center space-y-4 md:space-y-0 md:flex justify-center md:gap-4">
+                <div class="flex justify-center">
+                    <Link aria_label={ data.button_text_orange } href={ data.button_orange_link }>
+                        <ButtonWhite>{ data.button_text_orange }</ButtonWhite>
+                    </Link>
+                </div>
+                <div class="flex justify-center">
+                    <Link aria_label={ data.button_text_transparent } href={ data.button_transparent_link }>
+                        <ButtonTransparent>{ data.button_text_transparent }</ButtonTransparent>
+                    </Link>
+                </div>
+            </div>
+        </div>
+    </Container>
+</section>
+<div class="absolute bg-blue-500 py-3 w-full"></div>
+
+<script>
+    const words = ["seo", "ppc", "website", "marketing", "content", "design"];
+    let i = 0;
+    let j = 0;
+    let currentWord = "";
+    let isDeleting = false;
+    
+    function typeaniamtion() {
+    currentWord = words[i];
+        if (isDeleting) {
+            document.getElementById("typewriter").textContent = currentWord.substring(0, j-1);
+            j--;
+            if (j == 0) {
+            isDeleting = false;
+            i++;
+            if (i == words.length) {
+                i = 0;
+            }
+            }
+        } else {
+            document.getElementById("typewriter").textContent = currentWord.substring(0, j+1);
+            j++;
+            if (j == currentWord.length) {
+            isDeleting = true;
+            }
+        }
+        setTimeout(typeaniamtion, 200);
+        }
+    
+typeaniamtion();
+</script>

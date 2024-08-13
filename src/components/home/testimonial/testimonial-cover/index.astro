@@ -1,0 +1,36 @@
+---
+
+//IMPORT ASTRO ATOMS
+import ButtonWhite from "@/atoms/atoms-diksha/buttons/white/index.astro"
+import HeadingFourThreeXlSemiboldUppercaseCenterWhite from "@/atoms/atoms-diksha/headings/four/3xl/semibold/uppercase/center/white/index.astro"
+import Link from "@/atoms/links/index.astro"
+import ParagraphBoldUppercaseWhite from "@/atoms/atoms-diksha/paragraphs/bold/uppercase/white/index.astro"
+import Picture from "@/atoms/picture/internal/index.astro"
+
+//CONSTANTS
+const display_content = {
+    title: "WE HELP PEOPLE. THAT MEANS YOU, TOO. GET IN TOUCH FOR A FREE CONSULTATION AND DISCOVERY SESSION.",
+    button_text: "Get Started",
+    text: "360.550.9578"
+}
+
+---
+
+<div class="bg-color-primary bg-light-radial-gradient w-full lg:w-1/2 px-20 py-20 flex flex-col items-center justify-center gap-6">
+    <div class="size-14">
+        <Picture
+            alternative_text="email"
+            source="/images/icon-email.svg"
+        />
+    </div>
+    <HeadingFourThreeXlSemiboldUppercaseCenterWhite>{ display_content.title }</HeadingFourThreeXlSemiboldUppercaseCenterWhite>
+    <div class="flex justify-center items-center gap-6">
+        <Link
+            aria_label="get started"
+            source="/"
+        >
+            <ButtonWhite>{ display_content.button_text }</ButtonWhite>
+        </Link>
+        <ParagraphBoldUppercaseWhite>{ display_content.text }</ParagraphBoldUppercaseWhite>
+    </div>
+</div>

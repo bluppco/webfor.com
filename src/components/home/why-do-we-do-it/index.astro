@@ -1,14 +1,16 @@
 ---
 
 // IMPORT ASTRO LAYOUTS
-import Container from "@/layouts/container-custom/index.astro"
+import Container from "@/layouts/container-small/index.astro"
 
 // IMPORT ASTRO ATOMS
 import HeadingTwoBlue from "@/atoms/atoms-shiva/headings/two/three-xl/blue/index.astro"
+import HeadingTwoBlueCenter from "@/atoms/atoms-shiva/headings/two/three-xl/center/blue/index.astro"
 import Link from "@/atoms/links/index.astro"
 import ParagraphBaseMedium from "@/atoms/atoms-shiva/paragraphs/base/medium/index.astro"
+import ParagraphBaseMediumResponsiveCenter from "@/atoms/atoms-shiva/paragraphs/base/medium/responsive-center/index.astro"
 import ParagraphLgBoldBlueHover from "@/atoms/atoms-shiva/paragraphs/lg/bold/blue/hover/index.astro"
-import ParagraphTwoXlMediumWhite from "@/atoms/atoms-shiva/paragraphs/two-xl/medium/white/center/index.astro"
+import ParagraphTwoXlMediumWhite from "@/atoms/atoms-shiva/paragraphs/two-xl/medium/center/white/index.astro"
 import PictureContain from "@/atoms/picture/internal/contain/index.astro"
 
 // HARDCODED DATA
@@ -60,7 +62,7 @@ const gradientTextWithBold = insertBoldText( card_data.gradient_text, card_data.
                 <div class="flex items-center justify-center px-8" style="background: linear-gradient(-45deg, #0087f9, #00c045);">
                     <ParagraphTwoXlMediumWhite set:html={ gradientTextWithBold } />
                 </div>
-                <div class="grid grid-cols-3 gap-4 px-4">
+                <div class="grid grid-cols-1 lg:grid-cols-3 gap-4 px-4">
                     <div class="flex items-center justify-center">
                         <div class="size-32">
                             <PictureContain
@@ -70,8 +72,8 @@ const gradientTextWithBold = insertBoldText( card_data.gradient_text, card_data.
                         </div>
                     </div>
                     <div class="col-span-2 flex flex-col gap-4">
-                        <HeadingTwoBlue>{ card_data.title }</HeadingTwoBlue>
-                        <ParagraphBaseMedium>{ card_data.description }</ParagraphBaseMedium>
+                        <HeadingTwoBlueCenter>{ card_data.title }</HeadingTwoBlueCenter>
+                        <ParagraphBaseMediumResponsiveCenter>{ card_data.description }</ParagraphBaseMediumResponsiveCenter>
                     </div>
                 </div>
             </div>

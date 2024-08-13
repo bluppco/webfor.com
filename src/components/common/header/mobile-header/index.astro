@@ -1,0 +1,37 @@
+---
+// IMPORT ASTRO LAYOUTS
+import Container from "@/layouts/container/index.astro"
+
+// IMPORT ASTRO ATOMS
+import PictureInternal from "@/atoms/picture/internal/index.astro"
+
+// GET ASTRO PROPS
+const {
+    
+    webforicon_link,
+    menuicon_link,
+
+} = Astro.props
+
+
+
+---
+<header class="md:hidden bg-black fixed w-full z-20 py-5">
+    <Container>
+        <div class="flex justify-between items-center">
+            <div class="h-20 aspect-[3/1]">
+                <PictureInternal
+                    alternative_text={ webforicon_link },
+                    source={ webforicon_link }
+                />
+            </div>
+            <div class="size-5">
+                <PictureInternal
+                    alternative_text={ menuicon_link },
+                    source={ menuicon_link }
+                />
+            </div>
+        </div>
+    </Container>
+</header>
+

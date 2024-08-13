@@ -1,0 +1,32 @@
+---
+
+// IMPORT ASTRO ATOMS
+import HeadingSixTwoXlSemiboldWhite from "@/atoms/atoms-diksha/headings/six/2xl/semibold/white/index.astro"
+import Link from "@/atoms/links/index.astro"
+import ParagrapghBoldUppercaseWhite from "@/atoms/atoms-diksha/paragraphs/bold/uppercase/white/index.astro"
+import ParagraphSemiboldWhite from "@/atoms/atoms-diksha/paragraphs/semibold/white/index.astro"
+import ParagraphWhite from "@/atoms/atoms-diksha/paragraphs/white/index.astro"
+
+//CONSTANTS
+const project = {
+    title:"Prairie Electic",
+    description:"We’ve been working with this client for years and that’s because we know how to drive results.",
+}
+
+---
+
+<div class="bg-[url('/images/grow-your-buisness-case-study.jpg')] bg-contain bg-no-repeat border-[12px] border-slate-100 h-96 flex flex-col justify-between items-start">
+    <div class="bg-color-primary py-3 px-8 flex">
+        <ParagrapghBoldUppercaseWhite>CASE STUDY</ParagrapghBoldUppercaseWhite>
+    </div>
+    <div class="bg-slate-800/[0.8] flex flex-col items-start gap-2 p-6">
+        <HeadingSixTwoXlSemiboldWhite>{ project.title }</HeadingSixTwoXlSemiboldWhite>
+        <ParagraphWhite>{ project.description }</ParagraphWhite>
+        <Link
+            aria-label="Read the rest of the study"
+            href="/"
+        >
+            <ParagraphSemiboldWhite>Read the rest of the study.</ParagraphSemiboldWhite>
+        </Link>
+    </div>
+</div>

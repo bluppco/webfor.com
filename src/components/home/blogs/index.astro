@@ -1,0 +1,170 @@
+---
+
+// IMPORT ASTRO COMPONENTS
+import BlogCard from "@/components/home/blogs/card/index.astro"
+
+// IMPORT ASTRO ATOMS
+import ButtonTransparentBorderBlue from "@/atoms/atoms-shiva/buttons/transparent/border-blue/index.astro"
+import HeadingTwoThreeXlSemiboldBlue from "@/atoms/atoms-shiva/headings/two/three-xl/semibold/center/blue/index.astro"
+import Link from "@/atoms/links/index.astro"
+import ParagraphBaseMediumCenter from "@/atoms/atoms-shiva/paragraphs/base/medium/center/index.astro"
+import ParagraphLgBoldBlueHover from "@/atoms/atoms-shiva/paragraphs/lg/bold/blue/hover/index.astro"
+import PictureContain from "@/atoms/picture/internal/contain/index.astro"
+
+// HARDCODED DATA
+const data = {
+
+    button_link: "/",
+    button_text: "READ MORE BLOG",
+    link_text: "View all our recents stories and educational resources.",
+    link: "/",
+    source: "/icons/webfor-book.svg",
+    subtitle: "Get the latest news in marketing, design and our agencyfrom our team. Tactics, new ideas and perspectives await!",
+    title: "RECENT NEWS, STRATEGIES, AND EVENTS",
+
+}
+const car_data = [
+
+    {
+        background: "bg-[url('/images/blog-card-1-bg.jpg')]",
+        date: "July 12, 2024 | in ",
+        domains: [
+
+            {
+                link_text: "Blog,",
+                link: "/",
+            },
+            {
+                link_text: "Content Marketing",
+                link: "/",
+            },
+
+        ],
+        link: "/",
+        name: "Jason Knapfel",
+        position: "",
+        source: "/images/blog-card-1.png",
+        title: "10 Proven Content Marketing Strategies"
+    },
+    {
+        background: "bg-[url('/images/blog-card-2-bg.jpg')]",
+        date: "July 11, 2024 | in ",
+        domains: [
+
+            {
+                link_text: "Blog,",
+                link: "/",
+            },
+            {
+                link_text: "Branding,",
+                link: "/",
+            },
+            {
+                link_text: "Design",
+                link: "/",
+            },
+
+        ],
+        link: "/",
+        name: "Jason Wright",
+        position: "COO & Creative Director",
+        source: "/images/blog-card-2.jpeg",
+        title: "How to Design a Logo from Scratch"
+    },
+    {
+        background: "bg-[url('/images/blog-card-3-bg.jpg')]",
+        date: "May 14, 2024 | in ",
+        domains: [
+
+            {
+                link_text: "AI,",
+                link: "/",
+            },
+            {
+                link_text: "Blog,",
+                link: "/",
+            },
+            {
+                link_text: "Digital Strategy,",
+                link: "/",
+            },
+            {
+                link_text: "Marketing Strategy",
+                link: "/",
+            },
+
+        ],
+        link: "/",
+        name: "Kevin Getch",
+        position: "CEO & Director of Digital Strategy",
+        source: "/images/blog-card-3.jpeg",
+        title: "How AI Concierges are Transforming Customer Experience and Marketing"
+    },
+    {
+        background: "bg-[url('/images/blog-card-4-bg.jpg')]",
+        date: "May 13, 2024 | in ",
+        domains: [
+
+            {
+                link_text: "Blog,",
+                link: "/",
+            },
+            {
+                link_text: "SEO",
+                link: "/",
+            },
+
+        ],
+        link: "/",
+        name: "Webfor",
+        position: "",
+        source: "/images/blog-card-4.png",
+        title: "10 Proven Content Marketing Strategies"
+    },
+
+]
+
+---
+
+<section class="py-12 px-4">
+    <div class="flex flex-col gap-8">
+        <div class="flex flex-col items-center justify-center gap-4 lg:px-80">
+            <div class="size-16">
+                <PictureContain
+                    alternative_text=""
+                    source={ data.source }
+                />
+            </div>
+            <HeadingTwoThreeXlSemiboldBlue>{ data.title }</HeadingTwoThreeXlSemiboldBlue>
+            <ParagraphBaseMediumCenter>{ data.subtitle }</ParagraphBaseMediumCenter>
+        </div>
+        <div class="grid grid-cols-1 gap-6 items-center justify-center md:grid-cols-2 lg:grid-cols-4">
+            {
+
+                car_data.map( ( data ) => (
+
+                    <BlogCard
+                        background={ data.background }
+                        date={ data.date }
+                        domains={ data.domains }
+                        link={ data.link }
+                        name={ data.name }
+                        position={ data.position }
+                        source={ data.source }
+                        title={ data.title }
+                    />
+
+                ))
+
+            }
+        </div>
+        <div class="flex items-center justify-center flex-col gap-6">
+            <Link href={ data.link }>
+                <ParagraphLgBoldBlueHover>{ data.link_text }</ParagraphLgBoldBlueHover>
+            </Link>
+            <Link href={ data.button_link }>
+                <ButtonTransparentBorderBlue>{ data.button_text }</ButtonTransparentBorderBlue>
+            </Link>
+        </div>
+    </div> 
+</section>
